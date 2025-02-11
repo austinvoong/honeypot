@@ -2,6 +2,17 @@
 
 This project implements a dynamic honeypot system using machine learning for active defense, based on research by Zhang and Shi (2023). The system uses clustering algorithms (K-means and DBSCAN) to analyze network devices and automatically configure honeypots.
 
+There are directory specific README files within src and test_environment.
+
+Sameer use branches mf
+
+## To-Do
+1. Fully develop the IoT device dataset
+2. Implement the feature analysis module (K-Means)
+3. Create the configuration file generator
+4. Set up the honeypot deployment system
+5. Implement the other feature analysis module (DBSCAN)
+
 ## Prerequisites
 
 Before starting, ensure you have the following installed (IMPORTANT!!!):
@@ -9,7 +20,6 @@ Before starting, ensure you have the following installed (IMPORTANT!!!):
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 - [Vagrant](https://developer.hashicorp.com/vagrant/downloads)
 - [Virtual Box](https://www.virtualbox.org/wiki/Downloads)
-- VSCode (recommended)
 
 ## Quick Start
 
@@ -55,15 +65,19 @@ curl http://localhost:8080/api/status
 ```
 honeypot-proj/
 ├── src/
-│   ├── network_scanner/      # Network scanning modules
+│   ├── network_scanner/    # Network scanning modules
 │   │   ├── nmap_scanner.py
+|   |   ├── models.py
+|   |   ├── scanner.py
 │   │   └── p0f_scanner.py
-│   └── utils/               # Utility functions
+│   └── utils/              # Utility functions
 │       └── config.py
-├── test_environment/        # Test environment setup
+├── test_environment/       # Test environment setup
 │   ├── docker/             # Docker configurations
 │   │   ├── smart-camera/   # Smart camera simulation
 │   │   └── docker-compose.yml
+│   ├── vagrant/    
+│   │   └── Vagrantfile     # Vagrant configuration
 │   └── README.md
 └── requirements.txt
 ```
@@ -126,14 +140,6 @@ Common issues and solutions:
    - Ensure you're in the virtual environment
    - Check if Docker network is properly configured
    - Verify all containers are running
-
-## Next Steps
-
-1. Implement the network scanning module
-2. Add K-means clustering
-3. Implement DBSCAN clustering
-4. Configure honeypot deployment
-5. Add more IoT device simulations
 
 ## Resources
 
