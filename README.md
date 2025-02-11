@@ -30,7 +30,7 @@ python -m venv venv
 .\venv\Scripts\activate
 ```
 
-3. Install dependencies:
+3. Install dependencies (this might not work, just download the ones you need for rn):
 ```bash
 pip install -r requirements.txt
 ```
