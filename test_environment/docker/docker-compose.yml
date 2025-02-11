@@ -1,0 +1,47 @@
+# test_environment/docker/docker-compose.yml
+version: '3.8'
+
+services:
+  analysis-system:
+    image: ubuntu:20.04
+    container_name: analysis-system
+    hostname: analysis-system
+    tty: true
+    stdin_open: true
+    ports:
+      - "8000:80"
+    volumes:
+      - ./shared:/shared
+    networks:
+      honeypot_net:
+        ipv4_address: 172.20.0.2
+
+  smart-camera:
+    build: 
+      context: ./smart-camera
+      dockerfile: Dockerfile
+    container_name: smart-camera
+    ports:
+      - "8080:80"
+      - "554:554"
+    networks:
+      honeypot_net:
+        ipv4_address: 172.20.0.3
+
+  iot-gateway:
+    image: nginx:alpine
+    container_name: iot-gateway
+    ports:
+      - "8081:80"
+    volumes:
+      - ./gateway-config:/etc/nginx/conf.d
+    networks:
+      honeypot_net:
+        ipv4_address: 172.20.0.4
+
+networks:
+  honeypot_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

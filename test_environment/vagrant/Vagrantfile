@@ -1,0 +1,66 @@
+# test_environment/vagrant/Vagrantfile
+Vagrant.configure("2") do |config|
+  # Main analysis system
+  config.vm.define "analysis" do |analysis|
+    analysis.vm.box = "ubuntu/focal64"
+    analysis.vm.hostname = "analysis-system"
+    analysis.vm.network "private_network", ip: "192.168.56.10"
+    
+    analysis.vm.provider "virtualbox" do |vb|
+      vb.memory = "2048"
+      vb.cpus = 1
+      # Add these lines to help with stability
+      vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
+      vb.customize ["modifyvm", :id, "--vram", "12"]
+    end
+    
+    # Install necessary tools
+    analysis.vm.provision "shell", inline: <<-SHELL
+      apt-get update
+      apt-get install -y python3-pip docker.io docker-compose
+      systemctl start docker
+      systemctl enable docker
+      usermod -aG docker vagrant
+    SHELL
+  end
+  
+  # IoT Gateway simulation
+  config.vm.define "iot-gateway" do |gateway|
+    gateway.vm.box = "ubuntu/focal64"
+    gateway.vm.hostname = "iot-gateway"
+    gateway.vm.network "private_network", ip: "192.168.56.20"
+    
+    gateway.vm.provider "virtualbox" do |vb|
+      vb.memory = "1024"
+      vb.cpus = 1
+    end
+    
+    gateway.vm.provision "shell", inline: <<-SHELL
+      apt-get update
+      apt-get install -y python3-minimal nginx
+      # Configure nginx as a simple IoT gateway interface
+      echo "server { listen 80; root /var/www/html; location / { default_type text/plain; return 200 'IoT Gateway Simulation'; } }" > /etc/nginx/sites-available/default
+      systemctl restart nginx
+    SHELL
+  end
+  
+  # Router simulation using OpenWRT
+  config.vm.define "router" do |router|
+    router.vm.box = "ubuntu/focal64"
+    router.vm.hostname = "router-sim"
+    router.vm.network "private_network", ip: "192.168.56.30"
+    
+    router.vm.provider "virtualbox" do |vb|
+      vb.memory = "512"
+      vb.cpus = 1
+    end
+    
+    router.vm.provision "shell", inline: <<-SHELL
+      apt-get update
+      apt-get install -y nginx
+      # Configure nginx to simulate router interface
+      echo "server { listen 80; root /var/www/html; location / { default_type text/plain; return 200 'Router Simulation'; } }" > /etc/nginx/sites-available/default
+      systemctl restart nginx
+    SHELL
+  end
+end

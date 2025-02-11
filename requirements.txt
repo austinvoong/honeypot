@@ -1,0 +1,39 @@
+# Network scanning and analysis
+python-nmap==0.7.1
+scapy==2.5.0
+# Note: p0f is typically installed via system package manager, not pip
+# sudo apt-get install p0f  # For Ubuntu/Debian
+
+# Data processing and machine learning
+numpy==1.24.3
+pandas==2.0.3
+scikit-learn==1.3.0
+scipy==1.11.2
+
+# Visualization and analysis
+matplotlib==3.7.2
+seaborn==0.12.2
+plotly==5.16.1
+
+# API and web interface
+flask==2.3.3
+requests==2.31.0
+aiohttp==3.8.5
+
+# Testing
+pytest==7.4.0
+pytest-cov==4.1.0
+
+# Development tools
+black==23.7.0
+isort==5.12.0
+flake8==6.1.0
+
+# Documentation
+sphinx==7.1.2
+sphinx-rtd-theme==1.3.0
+
+# Utilities
+python-dotenv==1.0.0
+pyyaml==6.0.1
+tqdm==4.66.1
