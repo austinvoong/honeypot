@@ -74,7 +74,10 @@ honeypot-proj/
 │   │   ├── p0f_scanner.py    # p0f scanning implementation
 │   │   └── scanner.py        # Main scanner integration
 │   ├── feature_analysis/     # Clustering and analysis modules
+│   │   ├── deployer.py.py
+│   │   └──  tpot_deployer.py 
 │   ├── honeypot_config/     # Configuration generation
+│   │   └──  generator.py 
 │   └── utils/               
 │       └── config.py         # Configuration settings
 ├── test_environment/        

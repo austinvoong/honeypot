@@ -1,47 +1,50 @@
 # test_environment/docker/docker-compose.yml
-version: '3.8'
+# Changed subnet from 172.20.0.0/16 to 10.0.0.0/16
+name: honeypot-test-environment
+
+networks:
+  honeypot_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.0.0.0/16    # CHANGED: from 172.20.0.0/16
 
 services:
-  analysis-system:
-    image: ubuntu:20.04
-    container_name: analysis-system
-    hostname: analysis-system
-    tty: true
-    stdin_open: true
-    ports:
-      - "8000:80"
-    volumes:
-      - ./shared:/shared
-    networks:
-      honeypot_net:
-        ipv4_address: 172.20.0.2
-
   smart-camera:
     build: 
       context: ./smart-camera
       dockerfile: Dockerfile
     container_name: smart-camera
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.2   # CHANGED: from 172.20.0.2
     ports:
       - "8080:80"
-      - "554:554"
-    networks:
-      honeypot_net:
-        ipv4_address: 172.20.0.3
+    restart: unless-stopped
 
   iot-gateway:
-    image: nginx:alpine
+    build:
+      context: ./gateway-config
+      dockerfile: Dockerfile
     container_name: iot-gateway
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.3   # CHANGED: from 172.20.0.3
     ports:
       - "8081:80"
-    volumes:
-      - ./gateway-config:/etc/nginx/conf.d
-    networks:
-      honeypot_net:
-        ipv4_address: 172.20.0.4
+    restart: unless-stopped
 
-networks:
-  honeypot_net:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 172.20.0.0/16
+  analysis-system:
+    build:
+      context: ../..
+      dockerfile: test_environment/docker/analysis/Dockerfile
+    container_name: analysis-system
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.4   # CHANGED: from 172.20.0.4
+    volumes:
+      - ../../src:/app/src
+      - ../../test_environment:/app/test_environment
+    depends_on:
+      - smart-camera
+      - iot-gateway

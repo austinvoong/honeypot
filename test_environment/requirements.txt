@@ -1,0 +1,5 @@
+python-nmap==0.7.1
+scikit-learn==1.0.2
+numpy==1.21.4
+docker==5.0.3
+pyyaml==6.0
