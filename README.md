@@ -64,17 +64,25 @@ curl http://localhost:8080/api/status
 
 ```
 honeypot-proj/
+├── examples/                 # Contains main code that pulls from each module
+│   ├── run_honeypot_system.py
+│   └── scan_network.py
 ├── src/
-│   ├── network_scanner/    # Network scanning modules
-│   │   ├── nmap_scanner.py
-|   |   ├── models.py
-|   |   ├── scanner.py
-│   │   └── p0f_scanner.py
-│   └── utils/              # Utility functions
-│       └── config.py
-├── test_environment/       # Test environment setup
-│   ├── docker/             # Docker configurations
-│   │   ├── smart-camera/   # Smart camera simulation
+│   ├── network_scanner/      
+│   │   ├── models.py         # Data models for device fingerprints
+│   │   ├── nmap_scanner.py   # Nmap scanning implementation
+│   │   ├── p0f_scanner.py    # p0f scanning implementation
+│   │   └── scanner.py        # Main scanner integration
+│   ├── feature_analysis/     # Clustering and analysis modules
+│   ├── honeypot_config/     # Configuration generation
+│   └── utils/               
+│       └── config.py         # Configuration settings
+├── test_environment/        
+│   ├── docker/             
+│   │   ├── smart-camera/    # Smart camera simulation
+│   │   │   ├── Dockerfile
+│   │   │   └── nginx.conf
+│   │   ├── gateway-config/  # IoT gateway configuration
 │   │   └── docker-compose.yml
 │   ├── vagrant/    
 │   │   └── Vagrantfile     # Vagrant configuration
