@@ -4,8 +4,6 @@ This project implements a dynamic honeypot system using machine learning for act
 
 There are directory specific README files within src and test_environment.
 
-Sameer use branches mf
-
 ## To-Do
 1. Fully develop the IoT device dataset
 2. Implement the feature analysis module (K-Means)
