@@ -119,20 +119,6 @@ docker-compose up -d
 python src/main.py
 ```
 
-## Safety Notice
-
-This project is for educational purposes only. Always:
-- Use only in isolated test environments
-- Never scan networks without explicit permission
-- Follow ethical guidelines and local regulations
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
-
 ## Troubleshooting
 
 Common issues and solutions:
