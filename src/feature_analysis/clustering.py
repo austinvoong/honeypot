@@ -64,17 +64,25 @@ class DeviceClusterer:
                 distortions.append(kmeans.inertia_)
             
             # Simple elbow detection
-            k = 3  # Default if can't determine
-            for i in range(1, len(distortions)-1):
-                if (distortions[i-1] - distortions[i]) / (distortions[i] - distortions[i+1]) < 1.5:
-                    k = i + 1
-                    break
+            k = 1  # Default to 1 cluster
+            if len(distortions) > 2:  # Need at least 3 points for elbow detection
+                try:
+                    for i in range(1, len(distortions)-1):
+                        if (distortions[i-1] - distortions[i]) / max(0.0001, (distortions[i] - distortions[i+1])) < 1.5:
+                            k = i + 1
+                            break
+                except ZeroDivisionError:
+                    # If we get division by zero, just use k=1
+                    k = 1
+                    
+            # Ensure k is at least 1 and at most the number of devices
+            k = max(1, min(k, len(devices)))
                     
             # Perform final clustering
             clusterer = KMeans(n_clusters=k)
             
         elif method == 'dbscan':
-            clusterer = DBSCAN(eps=0.3, min_samples=2)
+            clusterer = DBSCAN(eps=0.3, min_samples=1)  # Reduced min_samples to 1
             
         else:
             raise ValueError(f"Unknown clustering method: {method}")

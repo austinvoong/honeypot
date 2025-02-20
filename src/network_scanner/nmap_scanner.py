@@ -28,30 +28,43 @@ class NmapScanner:
                 self.logger.warning("Running with limited privileges - using basic TCP scan")
                 scan_args = '-sT -F -n --max-retries 2'
             
+            self.logger.info(f"Using scan arguments: {scan_args}")
+            self.logger.info("Initiating Nmap scan - this may take a few minutes...")
+            
+            # Use a smaller target range for testing
+            # test_target = '172.20.0.1-10'  # Scan just 10 IPs for testing
+            self.logger.info(f"Using limited test range: {test_target}")
+            
             self.nm.scan(
-                self.target_network,
+                self.target_network,  # Use limited range
                 arguments=scan_args
             )
             
+            self.logger.info(f"Scan completed. Processing results...")
+            
             devices = []
             for host in self.nm.all_hosts():
+                self.logger.info(f"Found host: {host}")
                 device = DeviceFingerprint(ip_address=host)
                 
-                # Get OS info if available (only in privileged mode)
+                # Get OS info if available
                 if 'osmatch' in self.nm[host]:
                     matches = self.nm[host]['osmatch']
                     if matches:
                         device.os_type = matches[0]['name']
+                        self.logger.info(f"OS detected: {device.os_type}")
                 
                 device.open_ports = []
                 device.services = {}
                 
+                # Process ports and services
                 for proto in self.nm[host].all_protocols():
                     ports = self.nm[host][proto].keys()
                     for port in ports:
                         device.open_ports.append(port)
                         service = self.nm[host][proto][port]['name']
                         device.services[port] = service
+                        self.logger.info(f"Found {proto} port {port} running {service}")
                 
                 devices.append(device)
                 

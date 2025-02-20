@@ -18,5 +18,5 @@ class Config:
     TPOT_DIR = Path('/opt/tpot')  # Or wherever T-Pot is installed
 
     # Logging configuration
-    LOG_LEVEL = 'INFO'
+    LOG_LEVEL = 'DEBUG'
     LOG_FORMAT = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'

@@ -15,12 +15,29 @@ class NetworkScanner:
         
     def scan_network(self) -> List[DeviceFingerprint]:
         """Run full network scan using both Nmap and p0f"""
-        # Run both scans
-        nmap_results = self.nmap_scanner.scan()
-        p0f_results = self.p0f_scanner.scan()
+        self.logger.info("Starting network scan...")
+        
+        # Run Nmap scan
+        self.logger.info("Running Nmap scan...")
+        try:
+            nmap_results = self.nmap_scanner.scan()
+            self.logger.info(f"Nmap scan complete. Found {len(nmap_results)} devices")
+        except Exception as e:
+            self.logger.error(f"Nmap scan failed: {str(e)}")
+            nmap_results = []
+        
+        # Run p0f scan
+        self.logger.info("Running p0f scan...")
+        try:
+            p0f_results = self.p0f_scanner.scan()
+            self.logger.info(f"p0f scan complete. Found {len(p0f_results)} devices")
+        except Exception as e:
+            self.logger.error(f"p0f scan failed: {str(e)}")
+            p0f_results = []
         
         # Merge results
         devices = self._merge_fingerprints(nmap_results, p0f_results)
+        self.logger.info(f"Merged results. Total unique devices: {len(devices)}")
         
         # Save results
         self._save_results(devices)

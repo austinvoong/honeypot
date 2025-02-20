@@ -1,4 +1,4 @@
-# examples/scan_network.py
+# examples/scan_network.py (modified)
 #!/usr/bin/env python3
 import logging
 import sys
@@ -8,7 +8,8 @@ from pathlib import Path
 project_root = Path(__file__).parent.parent
 sys.path.append(str(project_root))
 
-from src.network_scanner.scanner import NetworkScanner
+# Import your Docker scanner
+from docker_device_scanner import DockerDeviceScanner
 from src.utils.config import Config
 
 def main():
@@ -21,14 +22,13 @@ def main():
     logger = logging.getLogger(__name__)
     
     try:
-        # Initialize scanner
-        scanner = NetworkScanner(
-            target_network=Config.TARGET_NETWORK,
-            interface=Config.INTERFACE
-        )
+        # Use the Docker scanner instead
+        logger.info("Scanning Docker test environment...")
+        scanner = DockerDeviceScanner()
+        devices = scanner.scan()
         
-        # Run scan
-        devices = scanner.scan_network()
+        # Save results for other components to use
+        scanner.save_results(devices)
         
         # Print results
         for device in devices:
@@ -44,8 +44,6 @@ def main():
                 
     except Exception as e:
         logger.error(f"Scan failed: {str(e)}")
-        logger.error("If you need full scanning capabilities, try running with sudo:")
-        logger.error("sudo python examples/scan_network.py")
         sys.exit(1)
 
 if __name__ == '__main__':

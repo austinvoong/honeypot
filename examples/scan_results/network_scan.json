@@ -1,0 +1,40 @@
+[
+  {
+    "ip_address": "10.0.0.5",
+    "os_type": "Linux",
+    "open_ports": [
+      80
+    ],
+    "services": {
+      "80": "http"
+    },
+    "tcp_fingerprint": null,
+    "uptime": null
+  },
+  {
+    "ip_address": "10.0.0.2",
+    "os_type": "Linux",
+    "open_ports": [
+      554,
+      80
+    ],
+    "services": {
+      "554": "rtsp",
+      "80": "http"
+    },
+    "tcp_fingerprint": null,
+    "uptime": null
+  },
+  {
+    "ip_address": "10.0.0.3",
+    "os_type": "Linux",
+    "open_ports": [
+      80
+    ],
+    "services": {
+      "80": "http"
+    },
+    "tcp_fingerprint": null,
+    "uptime": null
+  }
+]
