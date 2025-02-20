@@ -1,3 +1,4 @@
+# test_environment/docker/smart-thermostat/Dockerfile
 FROM nginx:alpine
 
 # Create necessary directories
