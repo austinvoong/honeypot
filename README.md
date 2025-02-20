@@ -5,11 +5,11 @@ This project implements a dynamic honeypot system using machine learning for act
 There are directory specific README files within src and test_environment.
 
 ## To-Do
-1. Fully develop the IoT device dataset
-2. Implement the feature analysis module (K-Means)
-3. Create the configuration file generator
-4. Set up the honeypot deployment system
-5. Implement the other feature analysis module (DBSCAN)
+1. Fully develop the IoT device dataset (DO THIS ASAP)
+2. Implement the feature analysis module (K-Means) (done)
+3. Create the configuration file generator (can't test, but done?)
+4. Set up the honeypot deployment system (done)
+5. Implement the other feature analysis module (DBSCAN) (done_)
 
 ## Prerequisites
 
@@ -108,15 +108,13 @@ The test environment consists of several simulated IoT devices:
 3. Implement clustering algorithms to categorize devices
 4. Configure and deploy honeypots based on clustering results
 
-## Running Tests
+## How to Run
 
 ```bash
-# Start the test environment
-cd test_environment/docker
-docker-compose up -d
-
-# Run your network scanning tests
-python src/main.py
+# within the /examples directory
+# will automatically scan, cluster, and deploy honeypots
+# make sure VM is running, T-Pot browser is open, and docker containers are active
+python3 run_honeypot_system.py
 ```
 
 ## Troubleshooting
