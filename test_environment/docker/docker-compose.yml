@@ -157,7 +157,7 @@ services:
       - "4723:4723"
     restart: unless-stopped
   
-solar-energy-monitor:
+  solar-energy-monitor:
     build:
       context: ./solar-energy-monitor
       dockerfile: Dockerfile

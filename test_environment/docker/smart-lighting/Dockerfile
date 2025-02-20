@@ -16,6 +16,8 @@ RUN echo '{"room":"living_room","lights":["light1","light4"],"current_scene":"re
 RUN echo '{"room":"kitchen","lights":["light2"],"current_scene":"default"}' > /usr/share/nginx/html/api/rooms/kitchen
 RUN echo '{"room":"bedroom","lights":["light3","light5"],"current_scene":"night"}' > /usr/share/nginx/html/api/rooms/bedroom
 
+RUN mkdir -p /usr/share/nginx/html/api/scenes
+
 # Scene configurations
 RUN echo '{"scene":"reading","settings":[{"id":"light1","brightness":80,"color":"#F5F5DC","colorTemp":4000},{"id":"light4","brightness":60,"color":"#F5F5DC","colorTemp":3800}]}' > /usr/share/nginx/html/api/scenes/reading
 
