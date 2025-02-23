@@ -1,0 +1,860 @@
+name: honeypot-test-environment
+networks:
+  honeypot_network:
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 10.0.0.0/16
+services:
+  analysis-system:
+    build:
+      context: ../..
+      dockerfile: test_environment/docker/analysis/Dockerfile
+    container_name: analysis-system
+    depends_on:
+    - smart-camera
+    - iot-gateway
+    - smart-thermostat
+    - smart-doorbell
+    - smart-lock
+    - environmental-sensor
+    - smart-lighting
+    - smart-speaker
+    - water-leak-sensor
+    - smart-blinds
+    - solar-energy-monitor
+    - smart-camera-1
+    - iot-gateway-1
+    - smart-thermostat-1
+    - smart-doorbell-1
+    - smart-lock-1
+    - environmental-sensor-1
+    - smart-lighting-1
+    - smart-speaker-1
+    - water-leak-sensor-1
+    - smart-blinds-1
+    - solar-energy-monitor-1
+    - smart-camera-2
+    - iot-gateway-2
+    - smart-thermostat-2
+    - smart-doorbell-2
+    - smart-lock-2
+    - environmental-sensor-2
+    - smart-lighting-2
+    - smart-speaker-2
+    - water-leak-sensor-2
+    - smart-blinds-2
+    - solar-energy-monitor-2
+    - smart-camera-3
+    - iot-gateway-3
+    - smart-thermostat-3
+    - smart-doorbell-3
+    - smart-lock-3
+    - environmental-sensor-3
+    - smart-lighting-3
+    - smart-speaker-3
+    - water-leak-sensor-3
+    - smart-blinds-3
+    - solar-energy-monitor-3
+    - smart-camera-4
+    - iot-gateway-4
+    - smart-thermostat-4
+    - smart-doorbell-4
+    - smart-lock-4
+    - environmental-sensor-4
+    - smart-lighting-4
+    - smart-speaker-4
+    - water-leak-sensor-4
+    - smart-blinds-4
+    - solar-energy-monitor-4
+    - smart-camera-5
+    - iot-gateway-5
+    - smart-thermostat-5
+    - smart-doorbell-5
+    - smart-lock-5
+    - environmental-sensor-5
+    - smart-lighting-5
+    - smart-speaker-5
+    - water-leak-sensor-5
+    - smart-blinds-5
+    - solar-energy-monitor-5
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.4
+    volumes:
+    - ../../src:/app/src
+    - ../../test_environment:/app/test_environment
+  environmental-sensor:
+    build:
+      context: ./environmental-sensor
+      dockerfile: Dockerfile
+    container_name: environmental-sensor
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.8
+    ports:
+    - 8085:80
+    - 1883:1883
+    restart: unless-stopped
+  environmental-sensor-1:
+    build:
+      context: ./environmental-sensor-1
+      dockerfile: Dockerfile
+    container_name: environmental-sensor__1
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.28
+    ports:
+    - 8185:80
+    - 1984:1883
+    restart: unless-stopped
+  environmental-sensor-2:
+    build:
+      context: ./environmental-sensor-2
+      dockerfile: Dockerfile
+    container_name: environmental-sensor__2
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.48
+    ports:
+    - 8285:80
+    - 2084:1883
+    restart: unless-stopped
+  environmental-sensor-3:
+    build:
+      context: ./environmental-sensor-3
+      dockerfile: Dockerfile
+    container_name: environmental-sensor__3
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.68
+    ports:
+    - 8385:80
+    - 2184:1883
+    restart: unless-stopped
+  environmental-sensor-4:
+    build:
+      context: ./environmental-sensor-4
+      dockerfile: Dockerfile
+    container_name: environmental-sensor__4
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.88
+    ports:
+    - 8485:80
+    - 2284:1883
+    restart: unless-stopped
+  environmental-sensor-5:
+    build:
+      context: ./environmental-sensor-5
+      dockerfile: Dockerfile
+    container_name: environmental-sensor__5
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.108
+    ports:
+    - 8585:80
+    - 2384:1883
+    restart: unless-stopped
+  iot-gateway:
+    build:
+      context: ./gateway-config
+      dockerfile: Dockerfile
+    container_name: iot-gateway
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.3
+    ports:
+    - 8081:80
+    restart: unless-stopped
+  iot-gateway-1:
+    build:
+      context: ./iot-gateway-1
+      dockerfile: Dockerfile
+    container_name: iot-gateway__1
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.23
+    ports:
+    - 8181:80
+    restart: unless-stopped
+  iot-gateway-2:
+    build:
+      context: ./iot-gateway-2
+      dockerfile: Dockerfile
+    container_name: iot-gateway__2
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.43
+    ports:
+    - 8281:80
+    restart: unless-stopped
+  iot-gateway-3:
+    build:
+      context: ./iot-gateway-3
+      dockerfile: Dockerfile
+    container_name: iot-gateway__3
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.63
+    ports:
+    - 8381:80
+    restart: unless-stopped
+  iot-gateway-4:
+    build:
+      context: ./iot-gateway-4
+      dockerfile: Dockerfile
+    container_name: iot-gateway__4
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.83
+    ports:
+    - 8481:80
+    restart: unless-stopped
+  iot-gateway-5:
+    build:
+      context: ./iot-gateway-5
+      dockerfile: Dockerfile
+    container_name: iot-gateway__5
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.103
+    ports:
+    - 8581:80
+    restart: unless-stopped
+  smart-blinds:
+    build:
+      context: ./smart-blinds
+      dockerfile: Dockerfile
+    container_name: smart-blinds
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.12
+    ports:
+    - 8089:80
+    - 4723:4723
+    restart: unless-stopped
+  smart-blinds-1:
+    build:
+      context: ./smart-blinds-1
+      dockerfile: Dockerfile
+    container_name: smart-blinds__1
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.32
+    ports:
+    - 8189:80
+    - 4824:4723
+    restart: unless-stopped
+  smart-blinds-2:
+    build:
+      context: ./smart-blinds-2
+      dockerfile: Dockerfile
+    container_name: smart-blinds__2
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.52
+    ports:
+    - 8289:80
+    - 4924:4723
+    restart: unless-stopped
+  smart-blinds-3:
+    build:
+      context: ./smart-blinds-3
+      dockerfile: Dockerfile
+    container_name: smart-blinds__3
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.72
+    ports:
+    - 8389:80
+    - 5024:4723
+    restart: unless-stopped
+  smart-blinds-4:
+    build:
+      context: ./smart-blinds-4
+      dockerfile: Dockerfile
+    container_name: smart-blinds__4
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.92
+    ports:
+    - 8489:80
+    - 5124:4723
+    restart: unless-stopped
+  smart-blinds-5:
+    build:
+      context: ./smart-blinds-5
+      dockerfile: Dockerfile
+    container_name: smart-blinds__5
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.112
+    ports:
+    - 8589:80
+    - 5224:4723
+    restart: unless-stopped
+  smart-camera:
+    build:
+      context: ./smart-camera
+      dockerfile: Dockerfile
+    container_name: smart-camera
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.2
+    ports:
+    - 8080:80
+    restart: unless-stopped
+  smart-camera-1:
+    build:
+      context: ./smart-camera-1
+      dockerfile: Dockerfile
+    container_name: smart-camera__1
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.22
+    ports:
+    - 8180:80
+    restart: unless-stopped
+  smart-camera-2:
+    build:
+      context: ./smart-camera-2
+      dockerfile: Dockerfile
+    container_name: smart-camera__2
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.42
+    ports:
+    - 8280:80
+    restart: unless-stopped
+  smart-camera-3:
+    build:
+      context: ./smart-camera-3
+      dockerfile: Dockerfile
+    container_name: smart-camera__3
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.62
+    ports:
+    - 8380:80
+    restart: unless-stopped
+  smart-camera-4:
+    build:
+      context: ./smart-camera-4
+      dockerfile: Dockerfile
+    container_name: smart-camera__4
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.82
+    ports:
+    - 8480:80
+    restart: unless-stopped
+  smart-camera-5:
+    build:
+      context: ./smart-camera-5
+      dockerfile: Dockerfile
+    container_name: smart-camera__5
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.102
+    ports:
+    - 8580:80
+    restart: unless-stopped
+  smart-doorbell:
+    build:
+      context: ./smart-doorbell
+      dockerfile: Dockerfile
+    container_name: smart-doorbell
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.6
+    ports:
+    - 8083:80
+    - 7001:7001
+    restart: unless-stopped
+  smart-doorbell-1:
+    build:
+      context: ./smart-doorbell-1
+      dockerfile: Dockerfile
+    container_name: smart-doorbell__1
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.26
+    ports:
+    - 8183:80
+    - 7102:7001
+    restart: unless-stopped
+  smart-doorbell-2:
+    build:
+      context: ./smart-doorbell-2
+      dockerfile: Dockerfile
+    container_name: smart-doorbell__2
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.46
+    ports:
+    - 8283:80
+    - 7202:7001
+    restart: unless-stopped
+  smart-doorbell-3:
+    build:
+      context: ./smart-doorbell-3
+      dockerfile: Dockerfile
+    container_name: smart-doorbell__3
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.66
+    ports:
+    - 8383:80
+    - 7302:7001
+    restart: unless-stopped
+  smart-doorbell-4:
+    build:
+      context: ./smart-doorbell-4
+      dockerfile: Dockerfile
+    container_name: smart-doorbell__4
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.86
+    ports:
+    - 8483:80
+    - 7402:7001
+    restart: unless-stopped
+  smart-doorbell-5:
+    build:
+      context: ./smart-doorbell-5
+      dockerfile: Dockerfile
+    container_name: smart-doorbell__5
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.106
+    ports:
+    - 8583:80
+    - 7502:7001
+    restart: unless-stopped
+  smart-lighting:
+    build:
+      context: ./smart-lighting
+      dockerfile: Dockerfile
+    container_name: smart-lighting
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.9
+    ports:
+    - 8086:80
+    - 9123:9123
+    restart: unless-stopped
+  smart-lighting-1:
+    build:
+      context: ./smart-lighting-1
+      dockerfile: Dockerfile
+    container_name: smart-lighting__1
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.29
+    ports:
+    - 8186:80
+    - 9224:9123
+    restart: unless-stopped
+  smart-lighting-2:
+    build:
+      context: ./smart-lighting-2
+      dockerfile: Dockerfile
+    container_name: smart-lighting__2
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.49
+    ports:
+    - 8286:80
+    - 9324:9123
+    restart: unless-stopped
+  smart-lighting-3:
+    build:
+      context: ./smart-lighting-3
+      dockerfile: Dockerfile
+    container_name: smart-lighting__3
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.69
+    ports:
+    - 8386:80
+    - 9424:9123
+    restart: unless-stopped
+  smart-lighting-4:
+    build:
+      context: ./smart-lighting-4
+      dockerfile: Dockerfile
+    container_name: smart-lighting__4
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.89
+    ports:
+    - 8486:80
+    - 9524:9123
+    restart: unless-stopped
+  smart-lighting-5:
+    build:
+      context: ./smart-lighting-5
+      dockerfile: Dockerfile
+    container_name: smart-lighting__5
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.109
+    ports:
+    - 8586:80
+    - 9624:9123
+    restart: unless-stopped
+  smart-lock:
+    build:
+      context: ./smart-lock
+      dockerfile: Dockerfile
+    container_name: smart-lock
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.7
+    ports:
+    - 8084:80
+    - 8883:8883
+    restart: unless-stopped
+  smart-lock-1:
+    build:
+      context: ./smart-lock-1
+      dockerfile: Dockerfile
+    container_name: smart-lock__1
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.27
+    ports:
+    - 8184:80
+    - 8984:8883
+    restart: unless-stopped
+  smart-lock-2:
+    build:
+      context: ./smart-lock-2
+      dockerfile: Dockerfile
+    container_name: smart-lock__2
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.47
+    ports:
+    - 8284:80
+    - 9084:8883
+    restart: unless-stopped
+  smart-lock-3:
+    build:
+      context: ./smart-lock-3
+      dockerfile: Dockerfile
+    container_name: smart-lock__3
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.67
+    ports:
+    - 8384:80
+    - 9184:8883
+    restart: unless-stopped
+  smart-lock-4:
+    build:
+      context: ./smart-lock-4
+      dockerfile: Dockerfile
+    container_name: smart-lock__4
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.87
+    ports:
+    - 8484:80
+    - 9284:8883
+    restart: unless-stopped
+  smart-lock-5:
+    build:
+      context: ./smart-lock-5
+      dockerfile: Dockerfile
+    container_name: smart-lock__5
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.107
+    ports:
+    - 8584:80
+    - 9384:8883
+    restart: unless-stopped
+  smart-speaker:
+    build:
+      context: ./smart-speaker
+      dockerfile: Dockerfile
+    container_name: smart-speaker
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.10
+    ports:
+    - 8087:80
+    - 5005:5005
+    restart: unless-stopped
+  smart-speaker-1:
+    build:
+      context: ./smart-speaker-1
+      dockerfile: Dockerfile
+    container_name: smart-speaker__1
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.30
+    ports:
+    - 8187:80
+    - 5106:5005
+    restart: unless-stopped
+  smart-speaker-2:
+    build:
+      context: ./smart-speaker-2
+      dockerfile: Dockerfile
+    container_name: smart-speaker__2
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.50
+    ports:
+    - 8287:80
+    - 5206:5005
+    restart: unless-stopped
+  smart-speaker-3:
+    build:
+      context: ./smart-speaker-3
+      dockerfile: Dockerfile
+    container_name: smart-speaker__3
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.70
+    ports:
+    - 8387:80
+    - 5306:5005
+    restart: unless-stopped
+  smart-speaker-4:
+    build:
+      context: ./smart-speaker-4
+      dockerfile: Dockerfile
+    container_name: smart-speaker__4
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.90
+    ports:
+    - 8487:80
+    - 5406:5005
+    restart: unless-stopped
+  smart-speaker-5:
+    build:
+      context: ./smart-speaker-5
+      dockerfile: Dockerfile
+    container_name: smart-speaker__5
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.110
+    ports:
+    - 8587:80
+    - 5506:5005
+    restart: unless-stopped
+  smart-thermostat:
+    build:
+      context: ./smart-thermostat
+      dockerfile: Dockerfile
+    container_name: smart-thermostat
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.5
+    ports:
+    - 8082:80
+    restart: unless-stopped
+  smart-thermostat-1:
+    build:
+      context: ./smart-thermostat-1
+      dockerfile: Dockerfile
+    container_name: smart-thermostat__1
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.25
+    ports:
+    - 8182:80
+    restart: unless-stopped
+  smart-thermostat-2:
+    build:
+      context: ./smart-thermostat-2
+      dockerfile: Dockerfile
+    container_name: smart-thermostat__2
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.45
+    ports:
+    - 8282:80
+    restart: unless-stopped
+  smart-thermostat-3:
+    build:
+      context: ./smart-thermostat-3
+      dockerfile: Dockerfile
+    container_name: smart-thermostat__3
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.65
+    ports:
+    - 8382:80
+    restart: unless-stopped
+  smart-thermostat-4:
+    build:
+      context: ./smart-thermostat-4
+      dockerfile: Dockerfile
+    container_name: smart-thermostat__4
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.85
+    ports:
+    - 8482:80
+    restart: unless-stopped
+  smart-thermostat-5:
+    build:
+      context: ./smart-thermostat-5
+      dockerfile: Dockerfile
+    container_name: smart-thermostat__5
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.105
+    ports:
+    - 8582:80
+    restart: unless-stopped
+  solar-energy-monitor:
+    build:
+      context: ./solar-energy-monitor
+      dockerfile: Dockerfile
+    container_name: solar-energy-monitor
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.13
+    ports:
+    - 8090:80
+    - 8091:8082
+    restart: unless-stopped
+  solar-energy-monitor-1:
+    build:
+      context: ./solar-energy-monitor-1
+      dockerfile: Dockerfile
+    container_name: solar-energy-monitor__1
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.33
+    ports:
+    - 8190:80
+    - 8192:8082
+    restart: unless-stopped
+  solar-energy-monitor-2:
+    build:
+      context: ./solar-energy-monitor-2
+      dockerfile: Dockerfile
+    container_name: solar-energy-monitor__2
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.53
+    ports:
+    - 8290:80
+    - 8292:8082
+    restart: unless-stopped
+  solar-energy-monitor-3:
+    build:
+      context: ./solar-energy-monitor-3
+      dockerfile: Dockerfile
+    container_name: solar-energy-monitor__3
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.73
+    ports:
+    - 8390:80
+    - 8392:8082
+    restart: unless-stopped
+  solar-energy-monitor-4:
+    build:
+      context: ./solar-energy-monitor-4
+      dockerfile: Dockerfile
+    container_name: solar-energy-monitor__4
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.93
+    ports:
+    - 8490:80
+    - 8492:8082
+    restart: unless-stopped
+  solar-energy-monitor-5:
+    build:
+      context: ./solar-energy-monitor-5
+      dockerfile: Dockerfile
+    container_name: solar-energy-monitor__5
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.113
+    ports:
+    - 8590:80
+    - 8592:8082
+    restart: unless-stopped
+  water-leak-sensor:
+    build:
+      context: ./water-leak-sensor
+      dockerfile: Dockerfile
+    container_name: water-leak-sensor
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.11
+    ports:
+    - 8088:80
+    - 6053:6053
+    restart: unless-stopped
+  water-leak-sensor-1:
+    build:
+      context: ./water-leak-sensor-1
+      dockerfile: Dockerfile
+    container_name: water-leak-sensor__1
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.31
+    ports:
+    - 8188:80
+    - 6154:6053
+    restart: unless-stopped
+  water-leak-sensor-2:
+    build:
+      context: ./water-leak-sensor-2
+      dockerfile: Dockerfile
+    container_name: water-leak-sensor__2
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.51
+    ports:
+    - 8288:80
+    - 6254:6053
+    restart: unless-stopped
+  water-leak-sensor-3:
+    build:
+      context: ./water-leak-sensor-3
+      dockerfile: Dockerfile
+    container_name: water-leak-sensor__3
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.71
+    ports:
+    - 8388:80
+    - 6354:6053
+    restart: unless-stopped
+  water-leak-sensor-4:
+    build:
+      context: ./water-leak-sensor-4
+      dockerfile: Dockerfile
+    container_name: water-leak-sensor__4
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.91
+    ports:
+    - 8488:80
+    - 6454:6053
+    restart: unless-stopped
+  water-leak-sensor-5:
+    build:
+      context: ./water-leak-sensor-5
+      dockerfile: Dockerfile
+    container_name: water-leak-sensor__5
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.111
+    ports:
+    - 8588:80
+    - 6554:6053
+    restart: unless-stopped
