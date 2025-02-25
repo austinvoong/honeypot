@@ -1,3 +1,50 @@
 [
   {
-    "cluster_id": 
+    "cluster_id": 1,
+    "os_type": "Linux",
+    "ports": [
+      9123,
+      6053,
+      554,
+      5005,
+      80,
+      8082,
+      4723,
+      8883,
+      7001
+    ],
+    "services": {
+      "7001": "unknown-7001",
+      "80": "http",
+      "9123": "unknown-9123",
+      "554": "rtsp",
+      "6053": "unknown-6053",
+      "8082": "unknown-8082",
+      "4723": "unknown-4723",
+      "5005": "unknown-5005",
+      "8883": "unknown-8883"
+    },
+    "personality": "default",
+    "uptime_range": [
+      24,
+      720
+    ]
+  },
+  {
+    "cluster_id": 0,
+    "os_type": "Linux",
+    "ports": [
+      80,
+      1883
+    ],
+    "services": {
+      "1883": "unknown-1883",
+      "80": "http"
+    },
+    "personality": "default",
+    "uptime_range": [
+      24,
+      720
+    ]
+  }
+]

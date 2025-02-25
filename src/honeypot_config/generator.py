@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 import logging
 from ..network_scanner.models import DeviceFingerprint
+import numpy as np
 
 class HoneypotConfigGenerator:
     def __init__(self, output_dir: Path):
@@ -56,8 +57,21 @@ class HoneypotConfigGenerator:
         self.output_dir.mkdir(parents=True, exist_ok=True)
         output_file = self.output_dir / filename
         
+        # Convert numpy types to Python native types
+        def convert_to_native(obj):
+            if isinstance(obj, np.integer):
+                return int(obj)
+            elif isinstance(obj, np.floating):
+                return float(obj)
+            elif isinstance(obj, np.ndarray):
+                return obj.tolist()
+            return obj
+        
+        # Convert configs to native Python types
+        native_configs = []
+        for config in configs:
+            native_config = {k: convert_to_native(v) for k, v in config.items()}
+            native_configs.append(native_config)
+        
         with open(output_file, 'w') as f:
-            json.dump(configs, f, indent=2)
-            
-        self.logger.info(f"Saved {len(configs)} honeypot configurations to {output_file}")
-        return output_file
+            json.dump(native_configs, f, indent=2)
