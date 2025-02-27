@@ -4,12 +4,14 @@ This project implements a dynamic honeypot system using machine learning for act
 
 There are directory specific README files within src and test_environment.
 
+CRITICAL CHANGE: temporarily using Docker API instead of nmap and p0f.
+
 ## To-Do
-1. Fully develop the IoT device dataset (DO THIS ASAP)
+1. Fully develop the IoT device dataset (needs to be verified)
 2. Implement the feature analysis module (K-Means) (done)
-3. Create the configuration file generator (can't test, but done?)
-4. Set up the honeypot deployment system (done)
-5. Implement the other feature analysis module (DBSCAN) (done_)
+3. Create the configuration file generator (done)
+4. Set up the honeypot deployment system (semi-done)
+5. Implement the other feature analysis module (DBSCAN) (done)
 
 ## Prerequisites
 
