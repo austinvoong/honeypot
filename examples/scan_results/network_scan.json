@@ -1,20 +1,6 @@
 [
   {
-    "ip_address": "10.0.0.6",
-    "os_type": "Linux",
-    "open_ports": [
-      7001,
-      80
-    ],
-    "services": {
-      "7001": "unknown-7001",
-      "80": "http"
-    },
-    "tcp_fingerprint": null,
-    "uptime": null
-  },
-  {
-    "ip_address": "10.0.0.5",
+    "ip_address": "10.0.0.3",
     "os_type": "Linux",
     "open_ports": [
       80
@@ -26,15 +12,15 @@
     "uptime": null
   },
   {
-    "ip_address": "10.0.0.9",
+    "ip_address": "10.0.0.7",
     "os_type": "Linux",
     "open_ports": [
       80,
-      9123
+      8883
     ],
     "services": {
       "80": "http",
-      "9123": "unknown-9123"
+      "8883": "unknown-8883"
     },
     "tcp_fingerprint": null,
     "uptime": null
@@ -54,28 +40,14 @@
     "uptime": null
   },
   {
-    "ip_address": "10.0.0.8",
+    "ip_address": "10.0.0.6",
     "os_type": "Linux",
     "open_ports": [
-      1883,
+      7001,
       80
     ],
     "services": {
-      "1883": "unknown-1883",
-      "80": "http"
-    },
-    "tcp_fingerprint": null,
-    "uptime": null
-  },
-  {
-    "ip_address": "10.0.0.11",
-    "os_type": "Linux",
-    "open_ports": [
-      6053,
-      80
-    ],
-    "services": {
-      "6053": "unknown-6053",
+      "7001": "unknown-7001",
       "80": "http"
     },
     "tcp_fingerprint": null,
@@ -96,26 +68,40 @@
     "uptime": null
   },
   {
-    "ip_address": "10.0.0.12",
+    "ip_address": "10.0.0.5",
     "os_type": "Linux",
     "open_ports": [
-      4723,
       80
     ],
     "services": {
-      "4723": "unknown-4723",
       "80": "http"
     },
     "tcp_fingerprint": null,
     "uptime": null
   },
   {
-    "ip_address": "10.0.0.3",
+    "ip_address": "10.0.0.11",
     "os_type": "Linux",
     "open_ports": [
+      6053,
       80
     ],
     "services": {
+      "6053": "unknown-6053",
+      "80": "http"
+    },
+    "tcp_fingerprint": null,
+    "uptime": null
+  },
+  {
+    "ip_address": "10.0.0.8",
+    "os_type": "Linux",
+    "open_ports": [
+      1883,
+      80
+    ],
+    "services": {
+      "1883": "unknown-1883",
       "80": "http"
     },
     "tcp_fingerprint": null,
@@ -136,15 +122,29 @@
     "uptime": null
   },
   {
-    "ip_address": "10.0.0.7",
+    "ip_address": "10.0.0.12",
+    "os_type": "Linux",
+    "open_ports": [
+      4723,
+      80
+    ],
+    "services": {
+      "4723": "unknown-4723",
+      "80": "http"
+    },
+    "tcp_fingerprint": null,
+    "uptime": null
+  },
+  {
+    "ip_address": "10.0.0.9",
     "os_type": "Linux",
     "open_ports": [
       80,
-      8883
+      9123
     ],
     "services": {
       "80": "http",
-      "8883": "unknown-8883"
+      "9123": "unknown-9123"
     },
     "tcp_fingerprint": null,
     "uptime": null
