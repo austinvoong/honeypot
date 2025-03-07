@@ -20,6 +20,6 @@ RUN echo '<html><body><h1>Solar Energy Monitoring System</h1><p>Current Producti
 # Add custom nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE 180 8182
+EXPOSE 80 8082
 
 CMD ["nginx", "-g", "daemon off;"]

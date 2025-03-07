@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Air Purifier</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; color: #333; }
+        h1 { color: #4caf50; }
+        .status-container { background: #f5f5f5; padding: 15px; border-radius: 8px; margin-top: 20px; }
+        .air-quality { display: flex; align-items: center; margin: 15px 0; }
+        .quality-indicator { width: 20px; height: 20px; border-radius: 50%; margin-right: 10px; }
+        .quality-good { background-color: #4caf50; }
+        .quality-moderate { background-color: #ff9800; }
+        .quality-poor { background-color: #cc0000; }
+        .controls { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px; }
+        button { background: #4caf50; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; }
+        .filter-life { width: 100%; background-color: #ddd; margin: 15px 0; }
+        .filter-fill { height: 20px; width: 87%; background-color: #4caf50; }
+    </style>
+</head>
+<body>
+    <h1>Smart Air Purifier</h1>
+    <p>AirPure-2000 Control Panel</p>
+    
+    <div class="status-container">
+        <h2>Air Quality Status</h2>
+        <div class="air-quality">
+            <div class="quality-indicator quality-good"></div>
+            <span>Air Quality: Good</span>
+        </div>
+        <p>PM2.5: 12 μg/m³</p>
+        <p>Humidity: 42%</p>
+        <p>Mode: Auto</p>
+        <p>Fan Speed: 2</p>
+    </div>
+
+    <div class="status-container">
+        <h2>Filter Status</h2>
+        <p>Filter Life Remaining: 87%</p>
+        <div class="filter-life">
+            <div class="filter-fill"></div>
+        </div>
+        <p>Estimated Replacement: 3 months</p>
+    </div>
+
+    <div class="status-container">
+        <h2>Controls</h2>
+        <div class="controls">
+            <button>Power</button>
+            <button>Fan Speed</button>
+            <button>Auto Mode</button>
+            <button>Sleep Mode</button>
+            <button>Timer</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -5,8 +5,8 @@ FROM nginx:alpine
 RUN mkdir -p /usr/share/nginx/html/api
 
 # Add simulation endpoints
-RUN echo '{"status": "active", "resolution": "1080p", "night_vision": 1.4}' > /usr/share/nginx/html/api/status
-RUN echo '{"stream_url": "rtsp://localhost:554/stream"}' > /usr/share/nginx/html/api/stream
+RUN echo '{"status":"active","resolution":"1080p","night_vision":true}' > /usr/share/nginx/html/api/status
+RUN echo '{"stream_url":"rtsp://localhost:554/stream"}' > /usr/share/nginx/html/api/stream
 
 # Create a simple web interface
 RUN echo '<html><body><h1>Smart Camera Interface</h1><p>Status: Online</p></body></html>' > /usr/share/nginx/html/index.html
@@ -14,6 +14,6 @@ RUN echo '<html><body><h1>Smart Camera Interface</h1><p>Status: Online</p></body
 # Add custom nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE 480 954
+EXPOSE 80 554
 
 CMD ["nginx", "-g", "daemon off;"]

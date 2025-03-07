@@ -5,7 +5,7 @@ FROM nginx:alpine
 RUN mkdir -p /usr/share/nginx/html/api
 
 # Add simulation endpoints
-RUN echo '{"status": "active", "current_temp": 27.0, "target_temp": 27.599999999999998, "humidity": 54.0, "mode": "auto"}' > /usr/share/nginx/html/api/status
+RUN echo '{"status": "active", "current_temp": 24.750000000000004, "target_temp": 25.3, "humidity": 49.50000000000001, "mode": "auto"}' > /usr/share/nginx/html/api/status
 
 RUN echo '{"schedules": [\
     {"time": "06:00", "temp": 21.5},\
@@ -26,6 +26,6 @@ RUN echo '<html><body><h1>Smart Thermostat Interface</h1><p>Status: Online</p></
 # Copy the nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE 280
+EXPOSE 180
 
 CMD ["nginx", "-g", "daemon off;"]

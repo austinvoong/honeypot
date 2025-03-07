@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Camera Interface</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            color: #333; 
+            background-color: #1a1a1a;
+        }
+        header {
+            background-color: #222;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        h1 { 
+            margin: 0;
+            font-size: 22px;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .video-container {
+            background-color: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            margin-bottom: 20px;
+        }
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .camera-controls {
+            background-color: #2a2a2a;
+            border-radius: 8px;
+            padding: 15px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .control-item {
+            background-color: #333;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .control-item:hover {
+            background-color: #444;
+        }
+        .control-icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .settings-panel {
+            background-color: #2a2a2a;
+            border-radius: 8px;
+            padding: 20px;
+            color: white;
+        }
+        .settings-title {
+            margin-top: 0;
+            border-bottom: 1px solid #444;
+            padding-bottom: 10px;
+        }
+        .settings-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #444;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #555;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        .status-pill {
+            background-color: #4CAF50;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        select {
+            background-color: #333;
+            color: white;
+            border: 1px solid #555;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Smart Camera Interface</h1>
+        <span class="status-pill">Active</span>
+    </header>
+    
+    <div class="container">
+        <div class="video-container">
+            <div class="video-placeholder">
+                <div style="font-size: 50px; margin-bottom: 20px;">📹</div>
+                <div>Live Video Stream</div>
+                <div style="font-size: 12px; margin-top: 10px; color: #aaa;">RTSP://localhost:554/stream</div>
+                <div style="font-size: 14px; margin-top: 20px; background-color: rgba(0,0,0,0.5); padding: 10px; border-radius: 5px;">Click to Play</div>
+            </div>
+        </div>
+        
+        <div class="camera-controls">
+            <div class="control-item">
+                <div class="control-icon">🔄</div>
+                <div>Refresh</div>
+            </div>
+            <div class="control-item">
+                <div class="control-icon">📸</div>
+                <div>Snapshot</div>
+            </div>
+            <div class="control-item">
+                <div class="control-icon">🎬</div>
+                <div>Record</div>
+            </div>
+            <div class="control-item">
+                <div class="control-icon">🔎</div>
+                <div>Zoom</div>
+            </div>
+            <div class="control-item">
+                <div class="control-icon">⚙️</div>
+                <div>Settings</div>
+            </div>
+            <div class="control-item">
+                <div class="control-icon">🔊</div>
+                <div>Audio</div>
+            </div>
+        </div>
+        
+        <div class="settings-panel">
+            <h2 class="settings-title">Camera Settings</h2>
+            
+            <div class="settings-row">
+                <div>Resolution</div>
+                <select>
+                    <option>1080p (Full HD)</option>
+                    <option>720p (HD)</option>
+                    <option>480p (SD)</option>
+                </select>
+            </div>
+            
+            <div class="settings-row">
+                <div>Frame Rate</div>
+                <select>
+                    <option>30 fps</option>
+                    <option>25 fps</option>
+                    <option>15 fps</option>
+                </select>
+            </div>
+            
+            <div class="settings-row">
+                <div>Night Vision</div>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            
+            <div class="settings-row">
+                <div>Motion Detection</div>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            
+            <div class="settings-row">
+                <div>Motion Sensitivity</div>
+                <select>
+                    <option>High</option>
+                    <option>Medium</option>
+                    <option>Low</option>
+                </select>
+            </div>
+            
+            <div class="settings-row">
+                <div>HDR</div>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            
+            <div class="settings-row">
+                <div>Notifications</div>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

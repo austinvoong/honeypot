@@ -17,6 +17,6 @@ RUN echo '<html><body><h1>Environmental Sensor Interface</h1><p>Temperature: 72.
 # Add custom nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE 380 2183
+EXPOSE 80 1883
 
 CMD ["nginx", "-g", "daemon off;"]

@@ -73,12 +73,44 @@ services:
     - water-leak-sensor-5
     - smart-blinds-5
     - solar-energy-monitor-5
+    - smart-refrigerator
+    - smart-refrigerator-1
+    - smart-refrigerator-2
+    - smart-refrigerator-3
+    - smart-refrigerator-4
+    - smart-refrigerator-5
+    - security-motion-sensor
+    - security-motion-sensor-1
+    - security-motion-sensor-2
+    - security-motion-sensor-3
+    - security-motion-sensor-4
+    - security-motion-sensor-5
+    - home-assistant-hub
+    - home-assistant-hub-1
+    - home-assistant-hub-2
+    - home-assistant-hub-3
+    - home-assistant-hub-4
+    - home-assistant-hub-5
+    - smart-air-purifier
+    - smart-air-purifier-1
+    - smart-air-purifier-2
+    - smart-air-purifier-3
+    - smart-air-purifier-4
+    - smart-air-purifier-5
+    - smart-garage-door
+    - smart-garage-door-1
+    - smart-garage-door-2
+    - smart-garage-door-3
+    - smart-garage-door-4
+    - smart-garage-door-5
     networks:
       honeypot_network:
         ipv4_address: 10.0.0.4
     volumes:
     - ../../src:/app/src
     - ../../test_environment:/app/test_environment
+
+  # 1. Environmental Sensor (80, 1883)
   environmental-sensor:
     build:
       context: ./environmental-sensor
@@ -151,6 +183,8 @@ services:
     - 8585:80
     - 2384:1883
     restart: unless-stopped
+
+  # 2. Gateway Config (80)
   iot-gateway:
     build:
       context: ./gateway-config
@@ -162,7 +196,6 @@ services:
     ports:
     - 8081:80
     restart: unless-stopped
-
   # iot-gateway-1:
   #   build:
   #     context: ./iot-gateway__1
@@ -218,6 +251,8 @@ services:
   #   ports:
   #   - 8581:80
   #   restart: unless-stopped
+
+  # 3. Smart Blinds (80, 4723)
   smart-blinds:
     build:
       context: ./smart-blinds
@@ -290,6 +325,8 @@ services:
     - 8589:80
     - 5224:4723
     restart: unless-stopped
+
+  # 4. Smart Camera (80, 554)
   smart-camera:
     build:
       context: ./smart-camera
@@ -300,6 +337,7 @@ services:
         ipv4_address: 10.0.0.2
     ports:
     - 8080:80
+    - 554:554
     restart: unless-stopped
   smart-camera-1:
     build:
@@ -311,6 +349,7 @@ services:
         ipv4_address: 10.0.0.22
     ports:
     - 8180:80
+    - 654:554
     restart: unless-stopped
   smart-camera-2:
     build:
@@ -322,6 +361,7 @@ services:
         ipv4_address: 10.0.0.42
     ports:
     - 8280:80
+    - 754:554
     restart: unless-stopped
   smart-camera-3:
     build:
@@ -333,6 +373,7 @@ services:
         ipv4_address: 10.0.0.62
     ports:
     - 8380:80
+    - 854:554
     restart: unless-stopped
   smart-camera-4:
     build:
@@ -344,6 +385,7 @@ services:
         ipv4_address: 10.0.0.82
     ports:
     - 8480:80
+    - 954:554
     restart: unless-stopped
   smart-camera-5:
     build:
@@ -355,7 +397,10 @@ services:
         ipv4_address: 10.0.0.102
     ports:
     - 8580:80
+    - 1054:554
     restart: unless-stopped
+
+  # 5. Smart Doorbell (80, 7001)
   smart-doorbell:
     build:
       context: ./smart-doorbell
@@ -428,6 +473,8 @@ services:
     - 8583:80
     - 7502:7001
     restart: unless-stopped
+
+  # 6. Smart Lighting (80, 9123)
   smart-lighting:
     build:
       context: ./smart-lighting
@@ -500,6 +547,8 @@ services:
     - 8586:80
     - 9624:9123
     restart: unless-stopped
+
+  # 7. Smart Lock (80, 8883)
   smart-lock:
     build:
       context: ./smart-lock
@@ -572,6 +621,8 @@ services:
     - 8584:80
     - 9384:8883
     restart: unless-stopped
+
+  # 8. Smart Speaker (80, 5005)
   smart-speaker:
     build:
       context: ./smart-speaker
@@ -644,6 +695,8 @@ services:
     - 8587:80
     - 5506:5005
     restart: unless-stopped
+
+  # 9. Smart Thermostat (80)
   smart-thermostat:
     build:
       context: ./smart-thermostat
@@ -710,6 +763,8 @@ services:
     ports:
     - 8582:80
     restart: unless-stopped
+
+  # 10. Solar Energy Monitor (80, 8082)
   solar-energy-monitor:
     build:
       context: ./solar-energy-monitor
@@ -782,6 +837,8 @@ services:
     - 8590:80
     - 8592:8082
     restart: unless-stopped
+
+  # 11. Water Leak Sensor (80, 6053)
   water-leak-sensor:
     build:
       context: ./water-leak-sensor
@@ -853,4 +910,374 @@ services:
     ports:
     - 8588:80
     - 6554:6053
+    restart: unless-stopped
+
+  # 12. Smart Refrigerator (80, 9000) - new
+  smart-refrigerator:
+    build:
+      context: ./smart-refrigerator
+      dockerfile: Dockerfile
+    container_name: smart-refrigerator
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.14
+    ports:
+    - 8600:80
+    - 9600:9000
+    restart: unless-stopped
+  smart-refrigerator-1:
+    build:
+      context: ./smart-refrigerator__1
+      dockerfile: Dockerfile
+    container_name: smart-refrigerator__1
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.34
+    ports:
+    - 8601:80
+    - 9601:9000
+    restart: unless-stopped
+  smart-refrigerator-2:
+    build:
+      context: ./smart-refrigerator__2
+      dockerfile: Dockerfile
+    container_name: smart-refrigerator__2
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.54
+    ports:
+    - 8602:80
+    - 9602:9000
+    restart: unless-stopped
+  smart-refrigerator-3:
+    build:
+      context: ./smart-refrigerator__3
+      dockerfile: Dockerfile
+    container_name: smart-refrigerator__3
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.74
+    ports:
+    - 8603:80
+    - 9603:9000
+    restart: unless-stopped
+  smart-refrigerator-4:
+    build:
+      context: ./smart-refrigerator__4
+      dockerfile: Dockerfile
+    container_name: smart-refrigerator__4
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.94
+    ports:
+    - 8604:80
+    - 9604:9000
+    restart: unless-stopped
+  smart-refrigerator-5:
+    build:
+      context: ./smart-refrigerator__5
+      dockerfile: Dockerfile
+    container_name: smart-refrigerator__5
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.114
+    ports:
+    - 8605:80
+    - 9605:9000
+    restart: unless-stopped
+
+  # 13. Security Motion Sensor (80, 7700) - new
+  security-motion-sensor:
+    build:
+      context: ./security-motion-sensor
+      dockerfile: Dockerfile
+    container_name: security-motion-sensor
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.15
+    ports:
+    - 8610:80
+    - 7710:7700
+    restart: unless-stopped
+  security-motion-sensor-1:
+    build:
+      context: ./security-motion-sensor__1
+      dockerfile: Dockerfile
+    container_name: security-motion-sensor__1
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.35
+    ports:
+    - 8611:80
+    - 7711:7700
+    restart: unless-stopped
+  security-motion-sensor-2:
+    build:
+      context: ./security-motion-sensor__2
+      dockerfile: Dockerfile
+    container_name: security-motion-sensor__2
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.55
+    ports:
+    - 8612:80
+    - 7712:7700
+    restart: unless-stopped
+  security-motion-sensor-3:
+    build:
+      context: ./security-motion-sensor__3
+      dockerfile: Dockerfile
+    container_name: security-motion-sensor__3
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.75
+    ports:
+    - 8613:80
+    - 7713:7700
+    restart: unless-stopped
+  security-motion-sensor-4:
+    build:
+      context: ./security-motion-sensor__4
+      dockerfile: Dockerfile
+    container_name: security-motion-sensor__4
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.95
+    ports:
+    - 8614:80
+    - 7714:7700
+    restart: unless-stopped
+  security-motion-sensor-5:
+    build:
+      context: ./security-motion-sensor__5
+      dockerfile: Dockerfile
+    container_name: security-motion-sensor__5
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.115
+    ports:
+    - 8615:80
+    - 7715:7700
+    restart: unless-stopped
+
+  # 14. Home Assistant Hub (80, 8123) - new
+  home-assistant-hub:
+    build:
+      context: ./home-assistant-hub
+      dockerfile: Dockerfile
+    container_name: home-assistant-hub
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.16
+    ports:
+    - 8620:80
+    - 8621:8123
+    restart: unless-stopped
+  home-assistant-hub-1:
+    build:
+      context: ./home-assistant-hub__1
+      dockerfile: Dockerfile
+    container_name: home-assistant-hub__1
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.36
+    ports:
+    - 8622:80
+    - 8623:8123
+    restart: unless-stopped
+  home-assistant-hub-2:
+    build:
+      context: ./home-assistant-hub__2
+      dockerfile: Dockerfile
+    container_name: home-assistant-hub__2
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.56
+    ports:
+    - 8624:80
+    - 8625:8123
+    restart: unless-stopped
+  home-assistant-hub-3:
+    build:
+      context: ./home-assistant-hub__3
+      dockerfile: Dockerfile
+    container_name: home-assistant-hub__3
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.76
+    ports:
+    - 8626:80
+    - 8627:8123
+    restart: unless-stopped
+  home-assistant-hub-4:
+    build:
+      context: ./home-assistant-hub__4
+      dockerfile: Dockerfile
+    container_name: home-assistant-hub__4
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.96
+    ports:
+    - 8628:80
+    - 8629:8123
+    restart: unless-stopped
+  home-assistant-hub-5:
+    build:
+      context: ./home-assistant-hub__5
+      dockerfile: Dockerfile
+    container_name: home-assistant-hub__5
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.116
+    ports:
+    - 8650:80
+    - 8651:8123
+    restart: unless-stopped
+
+  # 15. Smart Air Purifier (80, 3333) - new
+  smart-air-purifier:
+    build:
+      context: ./smart-air-purifier
+      dockerfile: Dockerfile
+    container_name: smart-air-purifier
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.17
+    ports:
+    - 8630:80
+    - 3633:3333
+    restart: unless-stopped
+  smart-air-purifier-1:
+    build:
+      context: ./smart-air-purifier__1
+      dockerfile: Dockerfile
+    container_name: smart-air-purifier__1
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.37
+    ports:
+    - 8631:80
+    - 3634:3333
+    restart: unless-stopped
+  smart-air-purifier-2:
+    build:
+      context: ./smart-air-purifier__2
+      dockerfile: Dockerfile
+    container_name: smart-air-purifier__2
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.57
+    ports:
+    - 8632:80
+    - 3635:3333
+    restart: unless-stopped
+  smart-air-purifier-3:
+    build:
+      context: ./smart-air-purifier__3
+      dockerfile: Dockerfile
+    container_name: smart-air-purifier__3
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.77
+    ports:
+    - 8633:80
+    - 3636:3333
+    restart: unless-stopped
+  smart-air-purifier-4:
+    build:
+      context: ./smart-air-purifier__4
+      dockerfile: Dockerfile
+    container_name: smart-air-purifier__4
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.97
+    ports:
+    - 8634:80
+    - 3637:3333
+    restart: unless-stopped
+  smart-air-purifier-5:
+    build:
+      context: ./smart-air-purifier__5
+      dockerfile: Dockerfile
+    container_name: smart-air-purifier__5
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.117
+    ports:
+    - 8635:80
+    - 3638:3333
+    restart: unless-stopped
+
+  # 16. Smart Garage Door (80, 4444) - new
+  smart-garage-door:
+    build:
+      context: ./smart-garage-door
+      dockerfile: Dockerfile
+    container_name: smart-garage-door
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.18
+    ports:
+    - 8640:80
+    - 4644:4444
+    restart: unless-stopped
+  smart-garage-door-1:
+    build:
+      context: ./smart-garage-door__1
+      dockerfile: Dockerfile
+    container_name: smart-garage-door__1
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.38
+    ports:
+    - 8641:80
+    - 4645:4444
+    restart: unless-stopped
+  smart-garage-door-2:
+    build:
+      context: ./smart-garage-door__2
+      dockerfile: Dockerfile
+    container_name: smart-garage-door__2
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.58
+    ports:
+    - 8642:80
+    - 4646:4444
+    restart: unless-stopped
+  smart-garage-door-3:
+    build:
+      context: ./smart-garage-door__3
+      dockerfile: Dockerfile
+    container_name: smart-garage-door__3
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.78
+    ports:
+    - 8643:80
+    - 4647:4444
+    restart: unless-stopped
+  smart-garage-door-4:
+    build:
+      context: ./smart-garage-door__4
+      dockerfile: Dockerfile
+    container_name: smart-garage-door__4
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.98
+    ports:
+    - 8644:80
+    - 4648:4444
+    restart: unless-stopped
+  smart-garage-door-5:
+    build:
+      context: ./smart-garage-door__5
+      dockerfile: Dockerfile
+    container_name: smart-garage-door__5
+    networks:
+      honeypot_network:
+        ipv4_address: 10.0.0.118
+    ports:
+    - 8645:80
+    - 4649:4444
     restart: unless-stopped

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Lock Interface</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            color: #333; 
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #263238;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        h1 { 
+            margin: 0;
+            font-size: 24px;
+        }
+        .battery-status {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+        }
+        .battery-icon {
+            width: 30px;
+            height: 15px;
+            border: 2px solid white;
+            border-radius: 3px;
+            margin-right: 5px;
+            position: relative;
+        }
+        .battery-icon:after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            right: -5px;
+            width: 3px;
+            height: 7px;
+            background: white;
+            border-radius: 0 2px 2px 0;
+        }
+        .battery-level {
+            height: 100%;
+            width: 92%;
+            background-color: #4CAF50;
+        }
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .lock-status {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .lock-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+        .lock-state {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .locked {
+            color: #4CAF50;
+        }
+        .unlocked {
+            color: #F44336;
+        }
+        .lock-details {
+            color: #777;
+            margin-bottom: 30px;
+        }
+        .lock-controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        button {
+            background-color: #263238;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+        }
+        button.unlock {
+            background-color: #F44336;
+        }
+        button.lock {
+            background-color: #4CAF50;
+        }
+        .button-icon {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .card-title {
+            margin-top: 0;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #263238;
+        }
+        .history-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .history-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #f0f0f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+        .unlock-icon {
+            color: #F44336;
+        }
+        .lock-icon-small {
+            color: #4CAF50;
+        }
+        .history-details {
+            flex: 1;
+        }
+        .history-time {
+            font-size: 12px;
+            color: #777;
+            margin-top: 3px;
+        }
+        .users-list {
+            padding-left: 0;
+            list-style-type: none;
+        }
+        .user-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .user-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #f0f0f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+        .user-details {
+            flex: 1;
+        }
+        .user-access {
+            font-size: 12px;
+            color: #777;
+            margin-top: 3px;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #4CAF50;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Smart Lock Interface</h1>
+        <div class="battery-status">
+            <div class="battery-icon">
+                <div class="battery-level"></div>
+            </div>
+            92%
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="lock-status">
+            <div class="lock-icon">🔒</div>
+            <div class="lock-state locked">Locked</div>
+            <div class="lock-details">Last updated: Just now</div>
+            <div class="lock-controls">
+                <button class="unlock">
+                    <span class="button-icon">🔓</span>
+                    Unlock
+                </button>
+                <button>
+                    <span class="button-icon">👁️</span>
+                    Check Status
+                </button>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2 class="card-title">Recent Activity</h2>
+            <div class="history-item">
+                <div class="history-icon lock-icon-small">🔒</div>
+                <div class="history-details">
+                    <div>Door locked</div>
+                    <div class="history-time">Today, 18:05 - Auto (System)</div>
+                </div>
+            </div>
+            <div class="history-item">
+                <div class="history-icon unlock-icon">🔓</div>
+                <div class="history-details">
+                    <div>Door unlocked</div>
+                    <div class="history-time">Today, 07:30 - Pin Code (Admin)</div>
+                </div>
+            </div>
+            <div class="history-item">
+                <div class="history-icon lock-icon-small">🔒</div>
+                <div class="history-details">
+                    <div>Door locked</div>
+                    <div class="history-time">Yesterday, 22:15 - Auto (System)</div>
+                </div>
+            </div>
+            <div class="history-item">
+                <div class="history-icon unlock-icon">🔓</div>
+                <div class="history-details">
+                    <div>Door unlocked</div>
+                    <div class="history-time">Yesterday, 18:30 - Pin Code (Guest)</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2 class="card-title">Access Management</h2>
+            <ul class="users-list">
+                <li class="user-item">
+                    <div class="user-icon">👤</div>
+                    <div class="user-details">
+                        <div>Admin</div>
+                        <div class="user-access">Pin: 1234 • Full Access</div>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </li>
+                <li class="user-item">
+                    <div class="user-icon">👤</div>
+                    <div class="user-details">
+                        <div>Guest</div>
+                        <div class="user-access">Pin: 5678 • Limited Access</div>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </li>
+            </ul>
+            <button style="width: 100%; margin-top: 15px;">
+                <span class="button-icon">➕</span>
+                Add New User
+            </button>
+        </div>
+        
+        <div class="card">
+            <h2 class="card-title">Settings</h2>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                <div>Auto-Lock</div>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                <div>Tamper Detection</div>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                <div>Lock Sounds</div>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+                <div>Push Notifications</div>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

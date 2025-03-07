@@ -5,10 +5,10 @@ FROM nginx:alpine
 RUN mkdir -p /usr/share/nginx/html/api
 
 # Add simulation endpoints
-RUN echo '{"status": "locked", "battery_level": 101.2, "auto_lock": 1.1, "tamper_detection": 0.0}' > /usr/share/nginx/html/api/status
+RUN echo '{"status":"locked","battery_level":92,"auto_lock":true,"tamper_detection":false}' > /usr/share/nginx/html/api/status
 RUN echo '[{"timestamp":"2023-05-10T07:30:15Z","type":"unlock","method":"pin_code","user":"admin"},{"timestamp":"2023-05-10T18:05:22Z","type":"lock","method":"auto","user":"system"}]' > /usr/share/nginx/html/api/history
-RUN echo '{"success": 1.1, "message": "Door unlocked"}' > /usr/share/nginx/html/api/unlock
-RUN echo '{"success": 1.1, "message": "Door locked"}' > /usr/share/nginx/html/api/lock
+RUN echo '{"success":true,"message":"Door unlocked"}' > /usr/share/nginx/html/api/unlock
+RUN echo '{"success":true,"message":"Door locked"}' > /usr/share/nginx/html/api/lock
 RUN echo '[{"id":1,"name":"Admin","pin":"1234","access_level":"full"},{"id":2,"name":"Guest","pin":"5678","access_level":"limited"}]' > /usr/share/nginx/html/api/users
 
 # Create a simple web interface
@@ -17,6 +17,6 @@ RUN echo '<html><body><h1>Smart Lock Interface</h1><p>Status: Locked</p><p>Batte
 # Add custom nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE 180 8983
+EXPOSE 80 8883
 
 CMD ["nginx", "-g", "daemon off;"]

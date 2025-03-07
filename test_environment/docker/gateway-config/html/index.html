@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IoT Gateway Management Console</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            color: #333; 
+            background-color: #f0f4f8;
+        }
+        header {
+            background-color: #0066cc;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        h1 { 
+            margin: 0;
+            font-size: 24px;
+        }
+        .status-pill {
+            background-color: #00cc66;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        .container {
+            padding: 20px;
+        }
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            margin-top: 0;
+            color: #0066cc;
+            font-size: 18px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            text-align: left;
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+        th {
+            font-weight: bold;
+            color: #555;
+        }
+        .device-status {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .online {
+            background-color: #00cc66;
+        }
+        .offline {
+            background-color: #ff3333;
+        }
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .metric-label {
+            font-weight: bold;
+        }
+        .metric-value {
+            color: #0066cc;
+        }
+        .actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        button {
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button.secondary {
+            background-color: #f0f4f8;
+            color: #0066cc;
+            border: 1px solid #0066cc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>IoT Gateway Management Console</h1>
+        <span class="status-pill">Online</span>
+    </header>
+    
+    <div class="container">
+        <div class="dashboard-grid">
+            <div class="main-content">
+                <div class="card">
+                    <h2>Connected Devices</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Status</th>
+                                <th>Device ID</th>
+                                <th>Type</th>
+                                <th>Last Seen</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="device-status online"></span> Online</td>
+                                <td>cam01</td>
+                                <td>Camera</td>
+                                <td>Just now</td>
+                                <td><button class="secondary">Configure</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="device-status online"></span> Online</td>
+                                <td>therm02</td>
+                                <td>Thermostat</td>
+                                <td>2 min ago</td>
+                                <td><button class="secondary">Configure</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="device-status offline"></span> Offline</td>
+                                <td>lock03</td>
+                                <td>Smart Lock</td>
+                                <td>2 hrs ago</td>
+                                <td><button class="secondary">Configure</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="device-status online"></span> Online</td>
+                                <td>light04</td>
+                                <td>Smart Light</td>
+                                <td>Just now</td>
+                                <td><button class="secondary">Configure</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="device-status online"></span> Online</td>
+                                <td>sensor05</td>
+                                <td>Motion Sensor</td>
+                                <td>1 min ago</td>
+                                <td><button class="secondary">Configure</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="actions">
+                        <button>Add Device</button>
+                        <button class="secondary">Refresh</button>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h2>Network Traffic</h2>
+                    <p>Chart placeholder: Network traffic monitoring visualization</p>
+                </div>
+            </div>
+            
+            <div class="sidebar">
+                <div class="card">
+                    <h2>Gateway Status</h2>
+                    <div class="metrics">
+                        <div class="metric">
+                            <span class="metric-label">Uptime:</span>
+                            <span class="metric-value">5d 12h</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">CPU Usage:</span>
+                            <span class="metric-value">25%</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Memory:</span>
+                            <span class="metric-value">512MB</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Firmware:</span>
+                            <span class="metric-value">v2.4.1</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">IP Address:</span>
+                            <span class="metric-value">10.0.0.3</span>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button>Update Firmware</button>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h2>Quick Actions</h2>
+                    <button style="width: 100%; margin-bottom: 10px;">Reboot Gateway</button>
+                    <button style="width: 100%; margin-bottom: 10px;">Network Scan</button>
+                    <button style="width: 100%; margin-bottom: 10px;">Backup Config</button>
+                    <button style="width: 100%;">System Logs</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SmartFridge X1 Control Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; color: #333; }
+        h1 { color: #0066cc; }
+        .status-container { background: #f5f5f5; padding: 15px; border-radius: 8px; margin-top: 20px; }
+        .temp-control { display: flex; align-items: center; margin: 15px 0; }
+        button { background: #0066cc; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; }
+        .value { font-weight: bold; margin: 0 15px; }
+    </style>
+</head>
+<body>
+    <h1>SmartFridge X1 Control Panel</h1>
+    <p>Manage your refrigerator settings and monitor temperature</p>
+    
+    <div class="status-container">
+        <h2>Current Status</h2>
+        <p>Refrigerator Temperature: <span class="value">2.4°C</span></p>
+        <p>Freezer Temperature: <span class="value">-18.6°C</span></p>
+        <p>Door Status: <span class="value">Closed</span></p>
+        <p>Power Usage: <span class="value">0.8 kWh/day</span></p>
+        <p>Firmware Version: <span class="value">v2.3.1</span></p>
+    </div>
+
+    <div class="status-container">
+        <h2>Temperature Controls</h2>
+        <div class="temp-control">
+            <span>Refrigerator: </span>
+            <button>-</button>
+            <span class="value">2.4°C</span>
+            <button>+</button>
+        </div>
+        <div class="temp-control">
+            <span>Freezer: </span>
+            <button>-</button>
+            <span class="value">-18.6°C</span>
+            <button>+</button>
+        </div>
+    </div>
+</body>
+</html>

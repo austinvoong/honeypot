@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Lighting Control Interface</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            color: #333; 
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #3949ab;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 { 
+            margin: 0;
+            font-size: 24px;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .system-summary {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .summary-stat {
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 28px;
+            font-weight: bold;
+            color: #3949ab;
+        }
+        .stat-label {
+            color: #777;
+            margin-top: 5px;
+        }
+        .scene-selector {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .scene-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .scene-button {
+            background-color: #f0f0f0;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            flex: 1;
+            min-width: 100px;
+            transition: all 0.2s;
+        }
+        .scene-button.active {
+            background-color: #e8eaf6;
+            border-color: #3949ab;
+            color: #3949ab;
+        }
+        .scene-icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .room-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        .room-header {
+            padding: 15px 20px;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .room-title {
+            margin: 0;
+            font-size: 18px;
+        }
+        .room-status {
+            display: flex;
+            align-items: center;
+        }
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .online {
+            background-color: #4CAF50;
+        }
+        .offline {
+            background-color: #ccc;
+        }
+        .room-content {
+            padding: 20px;
+        }
+        .light-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .light-info {
+            display: flex;
+            align-items: center;
+        }
+        .light-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #f0f0f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        .light-icon.on {
+            background-color: #fff9c4;
+            color: #fbc02d;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #3949ab;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        .light-controls {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        .control-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .control-label {
+            width: 100px;
+            font-weight: bold;
+        }
+        .slider-control {
+            flex: 1;
+        }
+        input[type="range"] {
+            width: 100%;
+        }
+        .color-temperature {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .temp-indicator {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin: 0 5px;
+        }
+        .warm {
+            background-color: #ffecb3;
+        }
+        .neutral {
+            background-color: #fff9c4;
+        }
+        .cool {
+            background-color: #e3f2fd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Smart Lighting Control Interface</h1>
+    </header>
+    
+    <div class="container">
+        <div class="system-summary">
+            <div class="summary-stat">
+                <div class="stat-value">5</div>
+                <div class="stat-label">Connected Lights</div>
+            </div>
+            <div class="summary-stat">
+                <div class="stat-value">3</div>
+                <div class="stat-label">Active Lights</div>
+            </div>
+            <div class="summary-stat">
+                <div class="stat-value">Reading</div>
+                <div class="stat-label">Active Scene</div>
+            </div>
+            <div class="summary-stat">
+                <div class="stat-value">70%</div>
+                <div class="stat-label">Average Brightness</div>
+            </div>
+        </div>
+        
+        <div class="scene-selector">
+            <h2>Lighting Scenes</h2>
+            <div class="scene-buttons">
+                <div class="scene-button">
+                    <div class="scene-icon">☀️</div>
+                    <div>Bright</div>
+                </div>
+                <div class="scene-button active">
+                    <div class="scene-icon">📖</div>
+                    <div>Reading</div>
+                </div>
+                <div class="scene-button">
+                    <div class="scene-icon">🎬</div>
+                    <div>Movie</div>
+                </div>
+                <div class="scene-button">
+                    <div class="scene-icon">🍽️</div>
+                    <div>Dinner</div>
+                </div>
+                <div class="scene-button">
+                    <div class="scene-icon">🌙</div>
+                    <div>Night</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="rooms-grid">
+            <div class="room-card">
+                <div class="room-header">
+                    <h3 class="room-title">Living Room</h3>
+                    <div class="room-status">
+                        <span class="status-indicator online"></span>
+                        <span>Online</span>
+                    </div>
+                </div>
+                <div class="room-content">
+                    <div class="light-item">
+                        <div class="light-info">
+                            <div class="light-icon on">💡</div>
+                            <div>
+                                <div>Living Room Main</div>
+                                <div style="font-size: 12px; color: #777;">Brightness: 75%</div>
+                            </div>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    
+                    <div class="light-controls">
+                        <div class="control-row">
+                            <div class="control-label">Brightness</div>
+                            <div class="slider-control">
+                                <input type="range" min="0" max="100" value="75">
+                            </div>
+                        </div>
+                        
+                        <div class="control-row">
+                            <div class="control-label">Color Temp</div>
+                            <div class="slider-control">
+                                <input type="range" min="2000" max="6500" value="4000">
+                                <div class="color-temperature">
+                                    <div class="temp-indicator warm"></div>
+                                    <div style="flex: 1; height: 2px; background: linear-gradient(to right, #ffecb3, #fff9c4, #e3f2fd);"></div>
+                                    <div class="temp-indicator cool"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="room-card">
+                <div class="room-header">
+                    <h3 class="room-title">Kitchen</h3>
+                    <div class="room-status">
+                        <span class="status-indicator online"></span>
+                        <span>Online</span>
+                    </div>
+                </div>
+                <div class="room-content">
+                    <div class="light-item">
+                        <div class="light-info">
+                            <div class="light-icon on">💡</div>
+                            <div>
+                                <div>Kitchen</div>
+                                <div style="font-size: 12px; color: #777;">Brightness: 100%</div>
+                            </div>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="room-card">
+                <div class="room-header">
+                    <h3 class="room-title">Bedroom</h3>
+                    <div class="room-status">
+                        <span class="status-indicator offline"></span>
+                        <span>Offline</span>
+                    </div>
+                </div>
+                <div class="room-content">
+                    <div class="light-item">
+                        <div class="light-info">
+                            <div class="light-icon">💡</div>
+                            <div>
+                                <div>Bedroom</div>
+                                <div style="font-size: 12px; color: #777;">Brightness: 0%</div>
+                            </div>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

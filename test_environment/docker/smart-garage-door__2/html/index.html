@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Garage Door Controller</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; color: #333; }
+        h1 { color: #673ab7; }
+        .status-container { background: #f5f5f5; padding: 15px; border-radius: 8px; margin-top: 20px; }
+        .door-status { display: flex; align-items: center; margin: 15px 0; }
+        .status-indicator { width: 20px; height: 20px; border-radius: 50%; margin-right: 10px; }
+        .closed { background-color: #4caf50; }
+        .open { background-color: #cc0000; }
+        .partially-open { background-color: #ff9800; }
+        .controls { display: flex; gap: 10px; margin-top: 15px; }
+        button { background: #673ab7; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; }
+        .setting-row { display: flex; justify-content: space-between; align-items: center; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>Smart Garage Door Controller</h1>
+    <p>Remote Access and Configuration</p>
+    
+    <div class="status-container">
+        <h2>Door Status</h2>
+        <div class="door-status">
+            <div class="status-indicator closed"></div>
+            <span>Door is Closed</span>
+        </div>
+        <p>Last Operation: Today, 8:15 AM</p>
+        <p>Battery Backup: Charged</p>
+        <p>Connection Status: Online</p>
+    </div>
+
+    <div class="status-container">
+        <h2>Door Controls</h2>
+        <div class="controls">
+            <button>Open Door</button>
+            <button>Close Door</button>
+            <button>Stop</button>
+            <button>Toggle Light</button>
+        </div>
+    </div>
+
+    <div class="status-container">
+        <h2>Settings</h2>
+        <div class="setting-row">
+            <span>Auto-Close Timer</span>
+            <select>
+                <option>Never</option>
+                <option>1 minute</option>
+                <option selected>5 minutes</option>
+                <option>10 minutes</option>
+            </select>
+        </div>
+        <div class="setting-row">
+            <span>Obstacle Detection</span>
+            <input type="checkbox" checked>
+        </div>
+        <div class="setting-row">
+            <span>Night Mode</span>
+            <input type="checkbox">
+        </div>
+    </div>
+</body>
+</html>

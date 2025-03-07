@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Water Leak Detection System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            color: #333; 
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #1976d2;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        h1 { 
+            margin: 0;
+            font-size: 24px;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .alert-banner {
+            background-color: #e3f2fd;
+            color: #1976d2;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .alert-icon {
+            font-size: 24px;
+            margin-right: 15px;
+        }
+        .status-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .status-header {
+            background-color: #f5f5f5;
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .status-title {
+            margin: 0;
+            color: #1976d2;
+            font-size: 18px;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        .status-normal {
+            background-color: #e8f5e9;
+            color: #4caf50;
+        }
+        .status-warning {
+            background-color: #fff3e0;
+            color: #ff9800;
+        }
+        .status-error {
+            background-color: #ffebee;
+            color: #f44336;
+        }
+        .status-content {
+            padding: 20px;
+        }
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .status-stat {
+            text-align: center;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+        .stat-value {
+            font-size: 28px;
+            font-weight: bold;
+            color: #1976d2;
+            margin-bottom: 5px;
+        }
+        .stat-label {
+            color: #777;
+            font-size: 14px;
+        }
+        .sensors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .sensor-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .sensor-header {
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .sensor-title {
+            margin: 0;
+            font-size: 18px;
+        }
+        .sensor-location {
+            color: #777;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        .sensor-content {
+            padding: 20px;
+        }
+        .sensor-status {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .status-indicator {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .normal {
+            background-color: #4caf50;
+        }
+        .warning {
+            background-color: #ff9800;
+        }
+        .error {
+            background-color: #f44336;
+        }
+        .sensor-details {
+            margin-bottom: 20px;
+        }
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .detail-label {
+            color: #777;
+        }
+        .battery-indicator {
+            width: 50px;
+            height: 12px;
+            background-color: #eee;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-left: 10px;
+        }
+        .battery-level {
+            height: 100%;
+            background-color: #4caf50;
+        }
+        .sensor-actions {
+            display: flex;
+            gap: 10px;
+        }
+        button {
+            background-color: #1976d2;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            flex: 1;
+        }
+        button.secondary {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .history-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .history-header {
+            background-color: #f5f5f5;
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .history-title {
+            margin: 0;
+            color: #1976d2;
+            font-size: 18px;
+        }
+        .history-content {
+            padding: 20px;
+        }
+        .event-item {
+            padding: 15px;
+            border-left: 4px solid #1976d2;
+            background-color: #f9f9f9;
+            margin-bottom: 15px;
+            border-radius: 0 8px 8px 0;
+        }
+        .event-item.leak {
+            border-left-color: #f44336;
+        }
+        .event-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .event-type {
+            font-weight: bold;
+            color: #1976d2;
+        }
+        .event-type.leak {
+            color: #f44336;
+        }
+        .event-time {
+            color: #777;
+            font-size: 14px;
+        }
+        .event-details {
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Water Leak Detection System</h1>
+        <div style="display: flex; align-items: center;">
+            <div style="margin-right: 10px;">Battery: 96%</div>
+            <div style="width: 30px; height: 15px; background-color: #eee; border-radius: 7px; overflow: hidden;">
+                <div style="height: 100%; width: 96%; background-color: #4caf50;"></div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="alert-banner">
+            <div class="alert-icon">✓</div>
+            <div>
+                <div style="font-weight: bold;">All Systems Normal</div>
+                <div>No leaks detected in your home</div>
+            </div>
+        </div>
+        
+        <div class="status-card">
+            <div class="status-header">
+                <h2 class="status-title">System Status</h2>
+                <span class="status-badge status-normal">Normal</span>
+            </div>
+            <div class="status-content">
+                <div class="status-grid">
+                    <div class="status-stat">
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">Connected Sensors</div>
+                    </div>
+                    <div class="status-stat">
+                        <div class="stat-value">96%</div>
+                        <div class="stat-label">Battery Level</div>
+                    </div>
+                    <div class="status-stat">
+                        <div class="stat-value">Active</div>
+                        <div class="stat-label">Monitoring Status</div>
+                    </div>
+                    <div class="status-stat">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">Active Alerts</div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 20px; display: flex; gap: 10px;">
+                    <button>Test System</button>
+                    <button class="secondary">System Settings</button>
+                </div>
+            </div>
+        </div>
+        
+        <h2 style="color: #1976d2; margin-top: 30px; margin-bottom: 20px;">Sensors</h2>
+        
+        <div class="sensors-grid">
+            <div class="sensor-card">
+                <div class="sensor-header">
+                    <div>
+                        <h3 class="sensor-title">Sensor 1</h3>
+                        <div class="sensor-location">Bathroom</div>
+                    </div>
+                    <span class="status-badge status-normal">Normal</span>
+                </div>
+                <div class="sensor-content">
+                    <div class="sensor-status">
+                        <div class="status-indicator normal"></div>
+                        <div>No leak detected</div>
+                    </div>
+                    
+                    <div class="sensor-details">
+                        <div class="detail-row">
+                            <div class="detail-label">Battery</div>
+                            <div style="display: flex; align-items: center;">
+                                92%
+                                <div class="battery-indicator">
+                                    <div class="battery-level" style="width: 92%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Last Checked</div>
+                            <div>Today, 12:30 PM</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Sensitivity</div>
+                            <div>Medium</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Installation Date</div>
+                            <div>Jan 15, 2023</div>
+                        </div>
+                    </div>
+                    
+                    <div class="sensor-actions">
+                        <button>Test Sensor</button>
+                        <button class="secondary">Configure</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sensor-card">
+                <div class="sensor-header">
+                    <div>
+                        <h3 class="sensor-title">Sensor 2</h3>
+                        <div class="sensor-location">Kitchen Sink</div>
+                    </div>
+                    <span class="status-badge status-normal">Normal</span>
+                </div>
+                <div class="sensor-content">
+                    <div class="sensor-status">
+                        <div class="status-indicator normal"></div>
+                        <div>No leak detected</div>
+                    </div>
+                    
+                    <div class="sensor-details">
+                        <div class="detail-row">
+                            <div class="detail-label">Battery</div>
+                            <div style="display: flex; align-items: center;">
+                                95%
+                                <div class="battery-indicator">
+                                    <div class="battery-level" style="width: 95%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Last Checked</div>
+                            <div>Today, 12:28 PM</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Sensitivity</div>
+                            <div>High</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Installation Date</div>
+                            <div>Jan 15, 2023</div>
+                        </div>
+                    </div>
+                    
+                    <div class="sensor-actions">
+                        <button>Test Sensor</button>
+                        <button class="secondary">Configure</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sensor-card">
+                <div class="sensor-header">
+                    <div>
+                        <h3 class="sensor-title">Sensor 3</h3>
+                        <div class="sensor-location">Water Heater</div>
+                    </div>
+                    <span class="status-badge status-normal">Normal</span>
+                </div>
+                <div class="sensor-content">
+                    <div class="sensor-status">
+                        <div class="status-indicator normal"></div>
+                        <div>No leak detected</div>
+                    </div>
+                    
+                    <div class="sensor-details">
+                        <div class="detail-row">
+                            <div class="detail-label">Battery</div>
+                            <div style="display: flex; align-items: center;">
+                                88%
+                                <div class="battery-indicator">
+                                    <div class="battery-level" style="width: 88%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Last Checked</div>
+                            <div>Today, 12:25 PM</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Sensitivity</div>
+                            <div>Medium</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Installation Date</div>
+                            <div>Jan 15, 2023</div>
+                        </div>
+                    </div>
+                    
+                    <div class="sensor-actions">
+                        <button>Test Sensor</button>
+                        <button class="secondary">Configure</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="history-card">
+            <div class="history-header">
+                <h2 class="history-title">Alert History</h2>
+            </div>
+            <div class="history-content">
+                <div class="event-item leak">
+                    <div class="event-header">
+                        <div class="event-type leak">Leak Detected</div>
+                        <div class="event-time">April 15, 2023 - 08:30 AM</div>
+                    </div>
+                    <div class="event-details">
+                        Sensor 2 (Kitchen Sink) detected water. Resolved after 12 minutes.
+                    </div>
+                </div>
+                
+                <div class="event-item leak">
+                    <div class="event-header">
+                        <div class="event-type leak">Leak Detected</div>
+                        <div class="event-time">February 10, 2023 - 11:15 PM</div>
+                    </div>
+                    <div class="event-details">
+                        Sensor 1 (Bathroom) detected water. Resolved after 8 minutes.
+                    </div>
+                </div>
+                
+                <div class="event-item">
+                    <div class="event-header">
+                        <div class="event-type">System Test</div>
+                        <div class="event-time">January 20, 2023 - 09:00 AM</div>
+                    </div>
+                    <div class="event-details">
+                        System test performed. All sensors functioning normally.
+                    </div>
+                </div>
+                
+                <div class="event-item">
+                    <div class="event-header">
+                        <div class="event-type">System Setup</div>
+                        <div class="event-time">January 15, 2023 - 02:30 PM</div>
+                    </div>
+                    <div class="event-details">
+                        Water leak detection system installed and activated.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

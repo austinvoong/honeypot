@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Security Motion Sensor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; color: #333; }
+        h1 { color: #cc0000; }
+        .status-container { background: #f5f5f5; padding: 15px; border-radius: 8px; margin-top: 20px; }
+        .sensor-status { display: flex; align-items: center; margin-bottom: 15px; }
+        .indicator { width: 15px; height: 15px; border-radius: 50%; margin-right: 10px; }
+        .active { background-color: #00cc00; }
+        .inactive { background-color: #cc0000; }
+        .slider { width: 100%; margin: 15px 0; }
+        button { background: #cc0000; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Security Motion Sensor</h1>
+    <p>Configuration and Status Interface</p>
+    
+    <div class="status-container">
+        <h2>Sensor Status</h2>
+        <div class="sensor-status">
+            <div class="indicator active"></div>
+            <span>Device Active</span>
+        </div>
+        <p>Battery Level: 92%</p>
+        <p>Last Detection: None in last 24 hours</p>
+        <p>Sensitivity Level: 7/10</p>
+        <p>Firmware Version: v1.5.2</p>
+    </div>
+
+    <div class="status-container">
+        <h2>Configuration</h2>
+        <p>Sensitivity</p>
+        <input type="range" min="1" max="10" value="7" class="slider" id="sensitivity">
+        <p>Detection Area</p>
+        <select>
+            <option>Full Coverage (180°)</option>
+            <option>Center Focus (90°)</option>
+            <option>Left Zone (90° Left)</option>
+            <option>Right Zone (90° Right)</option>
+        </select>
+        <p>
+            <button>Test Alarm</button>
+            <button>Reset Device</button>
+        </p>
+    </div>
+</body>
+</html>

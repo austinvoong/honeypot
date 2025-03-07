@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Assistant Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; color: #333; }
+        h1 { color: #03a9f4; }
+        .status-container { background: #f5f5f5; padding: 15px; border-radius: 8px; margin-top: 20px; }
+        .device-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
+        .device-card { background: white; border-radius: 8px; padding: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .device-status { font-size: 12px; color: white; background: #00cc00; padding: 3px 8px; border-radius: 12px; }
+        .offline { background: #cc0000; }
+        button { background: #03a9f4; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; margin-top: 15px; }
+    </style>
+</head>
+<body>
+    <h1>Home Assistant Hub</h1>
+    <p>Central Control for Your Smart Home</p>
+    
+    <div class="status-container">
+        <h2>System Status</h2>
+        <p>Hub Name: Home Hub Central</p>
+        <p>Version: 2024.3.1</p>
+        <p>Connected Devices: 23</p>
+        <p>Uptime: 15 days, 7 hours, 22 minutes</p>
+        <p>Interfaces: Zigbee, Z-Wave, WiFi, Bluetooth</p>
+    </div>
+
+    <div class="status-container">
+        <h2>Connected Devices</h2>
+        <div class="device-list">
+            <div class="device-card">
+                <h3>Living Room Lights</h3>
+                <span class="device-status">Online</span>
+                <p>Type: Smart Lighting</p>
+                <p>Last Activity: 3 min ago</p>
+            </div>
+            <div class="device-card">
+                <h3>Front Door Lock</h3>
+                <span class="device-status">Online</span>
+                <p>Type: Smart Lock</p>
+                <p>Last Activity: 1 hr ago</p>
+            </div>
+            <div class="device-card">
+                <h3>Kitchen Sensor</h3>
+                <span class="device-status offline">Offline</span>
+                <p>Type: Motion Sensor</p>
+                <p>Last Activity: 3 days ago</p>
+            </div>
+        </div>
+        <button>View All Devices</button>
+    </div>
+</body>
+</html>

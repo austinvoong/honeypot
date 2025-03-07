@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Speaker Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            color: #333; 
+            background-color: #121212;
+            color: white;
+        }
+        header {
+            background-color: #282828;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        h1 { 
+            margin: 0;
+            font-size: 24px;
+            color: white;
+        }
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .card {
+            background-color: #282828;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .now-playing {
+            padding: 20px;
+            position: relative;
+        }
+        .album-art {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 8px;
+            background: linear-gradient(45deg, #3949ab, #1e88e5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 40px;
+        }
+        .track-info {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .track-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .track-artist {
+            font-size: 16px;
+            color: #b3b3b3;
+            margin-bottom: 5px;
+        }
+        .track-album {
+            font-size: 14px;
+            color: #b3b3b3;
+        }
+        .progress-container {
+            margin-bottom: 20px;
+        }
+        .progress-bar {
+            height: 4px;
+            width: 100%;
+            background-color: #535353;
+            border-radius: 2px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .progress-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 20%;
+            background-color: #1DB954;
+            border-radius: 2px;
+        }
+        .progress-time {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #b3b3b3;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        .control-button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #535353;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .play-button {
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+        }
+        .volume-container {
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .volume-icon {
+            font-size: 20px;
+        }
+        .volume-bar {
+            flex: 1;
+            height: 4px;
+            background-color: #535353;
+            border-radius: 2px;
+            position: relative;
+        }
+        .volume-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 65%;
+            background-color: #1DB954;
+            border-radius: 2px;
+        }
+        .volume-percentage {
+            width: 40px;
+            text-align: right;
+            font-size: 14px;
+            color: #b3b3b3;
+        }
+        .speaker-groups {
+            padding: 20px;
+        }
+        .group-title {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: white;
+        }
+        .speaker-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+        }
+        .speaker-icon {
+            font-size: 24px;
+            margin-right: 15px;
+            color: #b3b3b3;
+        }
+        .speaker-name {
+            flex: 1;
+        }
+        .speaker-master {
+            font-size: 12px;
+            color: #1DB954;
+            margin-right: 10px;
+        }
+        .queue-list {
+            padding: 20px;
+        }
+        .queue-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+        }
+        .queue-number {
+            width: 30px;
+            text-align: center;
+            color: #b3b3b3;
+        }
+        .queue-info {
+            flex: 1;
+            margin-left: 10px;
+        }
+        .queue-title {
+            font-weight: bold;
+        }
+        .queue-artist {
+            font-size: 14px;
+            color: #b3b3b3;
+        }
+        .voice-control {
+            padding: 20px;
+            text-align: center;
+        }
+        .microphone-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #1DB954;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 24px;
+        }
+        .voice-hint {
+            color: #b3b3b3;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Smart Speaker Control</h1>
+        <div style="font-size: 24px;">⚙️</div>
+    </header>
+    
+    <div class="container">
+        <div class="card">
+            <div class="now-playing">
+                <div class="album-art">
+                    🎵
+                </div>
+                
+                <div class="track-info">
+                    <div class="track-title">Happy Day</div>
+                    <div class="track-artist">Music Band</div>
+                    <div class="track-album">Best Songs</div>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <div class="progress-time">
+                        <div>0:45</div>
+                        <div>3:58</div>
+                    </div>
+                </div>
+                
+                <div class="controls">
+                    <div class="control-button">⏮️</div>
+                    <div class="control-button play-button">⏸️</div>
+                    <div class="control-button">⏭️</div>
+                </div>
+                
+                <div class="volume-container">
+                    <div class="volume-icon">🔊</div>
+                    <div class="volume-bar">
+                        <div class="volume-fill"></div>
+                    </div>
+                    <div class="volume-percentage">65%</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="queue-list">
+                <h2 class="group-title">Up Next</h2>
+                
+                <div class="queue-item">
+                    <div class="queue-number">1</div>
+                    <div class="queue-info">
+                        <div class="queue-title">Sunny Morning</div>
+                        <div class="queue-artist">Guitar Group</div>
+                    </div>
+                    <div style="font-size: 20px;">⋮</div>
+                </div>
+                
+                <div class="queue-item">
+                    <div class="queue-number">2</div>
+                    <div class="queue-info">
+                        <div class="queue-title">Evening Star</div>
+                        <div class="queue-artist">Piano Player</div>
+                    </div>
+                    <div style="font-size: 20px;">⋮</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="speaker-groups">
+                <h2 class="group-title">Speaker Groups</h2>
+                
+                <div class="speaker-item">
+                    <div class="speaker-icon">🔈</div>
+                    <div class="speaker-name">Living Room Speaker</div>
+                    <div class="speaker-master">Master</div>
+                    <div style="font-size: 20px;">⋮</div>
+                </div>
+                
+                <div class="speaker-item">
+                    <div class="speaker-icon">🔈</div>
+                    <div class="speaker-name">Kitchen Speaker</div>
+                    <div style="font-size: 20px;">⋮</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="voice-control">
+                <div class="microphone-button">🎤</div>
+                <div>Tap to use voice commands</div>
+                <div class="voice-hint">Try saying "Play some jazz" or "What's the weather?"</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
