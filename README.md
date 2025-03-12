@@ -1,141 +1,209 @@
-# Dynamic Honeypot with Machine Learning
+# Dynamic Honeypot System with Machine Learning
 
-This project implements a dynamic honeypot system using machine learning for active defense, based on research by Zhang and Shi (2023). The system uses clustering algorithms (K-means and DBSCAN) to analyze network devices and automatically configure honeypots.
+A sophisticated honeypot system that uses machine learning to scan networks, analyze device patterns, and deploy honeypots that mimic legitimate devices. The system integrates with T-Pot running in UTM and uses clustering algorithms to create realistic, dynamic honeypots that adapt to your environment.
 
-There are directory specific README files within src and test_environment.
+## Features
 
-## To-Do
-1. Fully develop the IoT device dataset (needs to be verified)
-2. Implement the feature analysis module (K-Means) (done)
-3. Create the configuration file generator (done)
-4. Set up the honeypot deployment system (semi-done)
-5. Implement the other feature analysis module (DBSCAN) (done)
-
-## Prerequisites
-
-Before starting, ensure you have the following installed (IMPORTANT!!!):
-- Python 3.8 or higher
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
-- [Vagrant](https://developer.hashicorp.com/vagrant/downloads)
-- [Virtual Box](https://www.virtualbox.org/wiki/Downloads)
-
-## Quick Start
-
-1. Clone the repository:
-```bash
-git clone https://github.com/austinvoong/honeypot.git
-cd honeypot-proj
-```
-
-2. Create and activate a virtual environment:
-```bash
-# On macOS/Linux
-python3 -m venv venv
-source venv/bin/activate
-
-# On Windows
-python -m venv venv
-.\venv\Scripts\activate
-```
-
-3. Install dependencies (this might not work, just download the ones you need for rn):
-```bash
-pip install -r requirements.txt
-```
-
-4. Start the test environment:
-```bash
-cd test_environment/docker
-docker-compose up --build -d
-```
-
-5. Verify the setup:
-```bash
-# Test the smart camera endpoint
-curl http://localhost:8080
-curl http://localhost:8080/api/status
-
-# Should see the camera interface and status JSON
-```
+- **Automated Network Analysis**: Scans Docker-based test environments to identify devices and their fingerprints
+- **Machine Learning Classification**: Uses K-means clustering to group similar devices
+- **Dynamic Configuration**: Generates honeypot configurations based on device clusters
+- **T-Pot Integration**: Seamlessly deploys to T-Pot running in UTM
+- **Coexistence Mode**: Deploys alongside existing T-Pot honeypots without disruption
+- **Intelligent Port Allocation**: Avoids port conflicts by using high port ranges (40000-60000)
 
 ## Project Structure
 
 ```
-honeypot-proj/
-├── examples/                 # Contains main code that pulls from each module
-│   ├── run_honeypot_system.py
-│   └── scan_network.py
+dynamic-honeypot/
+├── examples/                           # Main execution scripts
+│   ├── run_honeypot_system.py          # Primary script to run the system
+│   ├── remote_run_honeypot_system.py   # For remote deployment
+│   └── scan_network.py                 # Standalone network scanning tool
+├── scan_results/                       # Storage for scan results and configs
+│   └── network_scan_YYYYMMDD_HHMMSS.json  # Saved scan results
 ├── src/
-│   ├── network_scanner/      
-│   │   ├── models.py         # Data models for device fingerprints
-│   │   ├── nmap_scanner.py   # Nmap scanning implementation
-│   │   ├── p0f_scanner.py    # p0f scanning implementation
-│   │   └── scanner.py        # Main scanner integration
-│   ├── feature_analysis/     # Clustering and analysis modules
-│   │   ├── deployer.py.py
-│   │   └──  tpot_deployer.py 
-│   ├── honeypot_config/     # Configuration generation
-│   │   └──  generator.py 
-│   └── utils/               
-│       └── config.py         # Configuration settings
-├── test_environment/        
-│   ├── docker/             
-│   │   ├── smart-camera/    # Smart camera simulation
-│   │   │   ├── Dockerfile
-│   │   │   └── nginx.conf
-│   │   ├── gateway-config/  # IoT gateway configuration
-│   │   └── docker-compose.yml
-│   ├── vagrant/    
-│   │   └── Vagrantfile     # Vagrant configuration
-│   └── README.md
-└── requirements.txt
+│   ├── network_scanner/                # Network scanning components
+│   │   ├── docker_device_scanner.py    # Scans Docker environments for devices
+│   │   └── models.py                   # Data models for device fingerprints
+│   ├── feature_analysis/               # ML-based feature analysis
+│   │   └── clustering.py               # Implements K-means clustering
+│   ├── honeypot_config/                # Configuration generators
+│   │   └── generator.py                # Creates honeypot configurations
+│   ├── honeypot_deploy/                # Deployment modules
+│   │   ├── remote_tpot_deployer.py     # Deploys to remote T-Pot via SSH
+│   │   └── coexist_tpot_deployer.py    # Deploys without disrupting existing honeypots
+│   └── utils/                          # Utility functions
+│       ├── config.py                   # System configuration
+│       └── port_utils.py               # Port management utilities
+└── requirements.txt                    # Python dependencies
 ```
 
-## Test Environment
+## Prerequisites
 
-The test environment consists of several simulated IoT devices:
-- Smart Camera (Port 8080)
-  - Web interface: http://localhost:8080
-  - Status API: http://localhost:8080/api/status
-  - RTSP stream simulation: rtsp://localhost:554
-- IoT Gateway (Port 8081)
-- Analysis System
+- Python 3.8 or higher
+- UTM (for running T-Pot VM on macOS)
+- T-Pot installed in UTM VM
+- SSH access to T-Pot VM
 
-## Development Workflow
+## Setting Up T-Pot in UTM
 
-1. The test environment provides safe targets for development
-2. Use the network scanner to discover and analyze devices
-3. Implement clustering algorithms to categorize devices
-4. Configure and deploy honeypots based on clustering results
+1. **Install UTM**:
+   - Download UTM from [https://mac.getutm.app/](https://mac.getutm.app/)
+   - Install and launch UTM
 
-## How to Run
+2. **Set Up T-Pot VM**:
+   - Download the T-Pot ISO from [T-Pot releases](https://github.com/telekom-security/tpotce/releases)
+   - In UTM, create a new VM with:
+     - At least 4GB RAM
+     - At least 60GB storage
+     - Bridged networking
+
+3. **Configure T-Pot**:
+   - Install T-Pot following the on-screen instructions
+   - Choose the "Standard" T-Pot installation
+   - Set up SSH access with a non-standard port (typically 64295)
+   - Note your VM's IP address (typically 192.168.x.x)
+
+4. **Enable Clipboard Sharing in UTM** (Optional):
+   - In VM settings, enable "Share Clipboard"
+   - Install SPICE guest tools if needed
+
+## Installation
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/yourusername/dynamic-honeypot.git
+   cd dynamic-honeypot
+   ```
+
+2. **Create and activate a virtual environment**:
+   ```bash
+   # On macOS/Linux
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+
+3. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## Deploying Honeypots
+
+### Option 1: Run with Pre-collected Network Data
 
 ```bash
-# within the /examples directory
-# will automatically scan, cluster, and deploy honeypots
-# make sure VM is running, T-Pot browser is open, and docker containers are active
-python3 run_honeypot_system.py
+# Deploy using a saved scan file
+python3 examples/run_honeypot_system.py --remote \
+  --host 192.168.64.2 \
+  --port 64295 \
+  --user tpotuser \
+  --password yourpassword \
+  --scan-file scan_results/network_scan_YYYYMMDD_HHMMSS.json
 ```
+
+### Option 2: Full Pipeline (Scan, Analyze, Deploy)
+
+```bash
+# Run a new scan and deploy based on results
+python3 examples/run_honeypot_system.py --remote \
+  --host 192.168.64.2 \
+  --port 64295 \
+  --user tpotuser \
+  --password yourpassword
+```
+
+### Command-line Options
+
+- `--remote`: Use remote deployment mode
+- `--host`: T-Pot hostname or IP address
+- `--port`: SSH port (default: 64295)
+- `--user`: SSH username
+- `--password`: SSH password
+- `--key`: SSH private key path (alternative to password)
+- `--remote-dir`: Remote T-Pot directory (default: /opt/tpot)
+- `--scan-file`: Use a saved scan file instead of doing a new scan
+- `--debug`: Enable debug logging
+
+## Monitoring Your Honeypots
+
+### View Running Honeypots
+
+```bash
+# SSH into your T-Pot and list running honeypots
+ssh -p 64295 tpotuser@192.168.64.2 "sudo docker ps | grep dyn_"
+```
+
+### Check Honeypot Logs
+
+```bash
+# View logs for a specific honeypot
+ssh -p 64295 tpotuser@192.168.64.2 "sudo docker logs dyn_heralding_1_TIMESTAMP_ID"
+
+# Follow logs in real-time
+ssh -p 64295 tpotuser@192.168.64.2 "sudo docker logs -f dyn_heralding_1_TIMESTAMP_ID"
+```
+
+### View Collected Data
+
+```bash
+# List data directories for honeypots
+ssh -p 64295 tpotuser@192.168.64.2 "sudo ls -la /data/dyn_*/"
+```
+
+### Access T-Pot Web Interface
+
+1. In your browser, navigate to:
+   ```
+   https://192.168.64.2:64297
+   ```
+2. Log in with your T-Pot credentials
+3. Use the Kibana/Elasticsearch dashboards to analyze attack data
+
+## Testing Your Honeypots
+
+1. **Basic Connection Tests**:
+   ```bash
+   # Test HTTP honeypot
+   curl http://192.168.64.2:PORT
+   
+   # Test SSH honeypot (if using cowrie)
+   ssh -p PORT root@192.168.64.2
+   ```
+
+2. **Port Scanning**:
+   ```bash
+   # Scan deployed honeypot ports
+   nmap -p PORT1,PORT2,PORT3 192.168.64.2
+   ```
 
 ## Troubleshooting
 
-Common issues and solutions:
+### Common Issues
 
-1. Docker containers not starting:
-   ```bash
-   # Check container status
-   docker ps -a
-   # View container logs
-   docker logs <container-name>
-   ```
+1. **SSH Connection Problems**:
+   - Verify that your T-Pot VM is running
+   - Check that you're using the correct SSH port
+   - Ensure your password is correct
 
-2. Network scanning issues:
-   - Ensure you're in the virtual environment
-   - Check if Docker network is properly configured
-   - Verify all containers are running
+2. **Container Restart/Failure Issues**:
+   - View container logs: `sudo docker logs CONTAINER_ID`
+   - Some honeypot types may not support certain protocols
+
+3. **Port Conflicts**:
+   - Check currently used ports: `sudo netstat -tulpn`
+   - Modify the port range in port_utils.py if needed
+
+### Cleaning Up
+
+To remove all deployed honeypots:
+
+```bash
+ssh -p 64295 tpotuser@192.168.64.2 "cd /opt/tpot/docker/dyn && sudo docker compose down --remove-orphans"
+```
 
 ## Resources
 
-- [Zhang and Shi's Paper](https://doi.org/10.1145/3617184.3618056)
-- [Docker Documentation](https://docs.docker.com/)
 - [T-Pot Documentation](https://github.com/telekom-security/tpotce)
+- [UTM Documentation](https://docs.getutm.app/)
+- [Zhang and Shi's Paper on Dynamic Honeypots](https://doi.org/10.1145/3617184.3618056)

@@ -1,0 +1,11 @@
+version: '2.3'
+services:
+  cowrie:
+    container_name: cowrie
+    restart: always
+    network_mode: "host"
+    image: "cowrie/cowrie:latest"
+    command: sh -c "cd /cowrie && bin/cowrie start -n"
+    volumes:
+     - /data/cowrie/logs:/cowrie/var/log/cowrie
+     - /data/cowrie/downloads:/cowrie/var/lib/cowrie/downloads

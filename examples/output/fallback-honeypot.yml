@@ -1,0 +1,26 @@
+networks:
+  honeypot_local:
+    driver: bridge
+services:
+  cowrie:
+    container_name: dyn_cowrie
+    image: cowrie/cowrie:latest
+    networks:
+    - honeypot_local
+    ports:
+    - '22:22'
+    - '2300:23'
+    restart: always
+    volumes:
+    - /data/cowrie/log:/var/log/cowrie
+  heralding:
+    container_name: dyn_heralding
+    image: honeynet/heralding:latest
+    networks:
+    - honeypot_local
+    ports:
+    - 8000:80
+    restart: always
+    volumes:
+    - /data/heralding/log:/var/log/heralding
+version: '2.3'

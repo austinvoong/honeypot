@@ -1,0 +1,17 @@
+version: '2.3'
+networks:
+  honeypot_local:
+    driver: bridge
+services:
+  cowrie:
+    container_name: cowrie
+    restart: always
+    networks:
+     - honeypot_local
+    ports:
+     - "22:22"
+     - "23:23"
+    image: "dtagdevsec/cowrie:latest"
+    read_only: true
+    volumes:
+     - /data/cowrie/log:/var/log/cowrie

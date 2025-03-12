@@ -1,0 +1,272 @@
+services:
+  dyn_adbhoney_0_1741758040_d6533f05:
+    container_name: dyn_adbhoney_0_1741758040_d6533f05
+    environment:
+      CLUSTER_ID: '0'
+      HONEYPOT_TYPE: adbhoney
+      OS_TYPE: Linux
+    image: ghcr.io/telekom-security/adbhoney:24.04.1
+    networks:
+    - default
+    ports:
+    - 47957:554
+    restart: always
+    volumes:
+    - /data/dyn_adbhoney/dyn_adbhoney_0_1741758040_d6533f05/:/data
+    - /data/dyn_adbhoney/dyn_adbhoney_0_1741758040_d6533f05/log:/var/log
+  dyn_adbhoney_1_1741758041_53f7da16:
+    container_name: dyn_adbhoney_1_1741758041_53f7da16
+    environment:
+      CLUSTER_ID: '1'
+      HONEYPOT_TYPE: adbhoney
+      OS_TYPE: Linux
+    image: ghcr.io/telekom-security/adbhoney:24.04.1
+    networks:
+    - default
+    ports:
+    - 56630:1883
+    restart: always
+    volumes:
+    - /data/dyn_adbhoney/dyn_adbhoney_1_1741758041_53f7da16/:/data
+    - /data/dyn_adbhoney/dyn_adbhoney_1_1741758041_53f7da16/log:/var/log
+  dyn_adbhoney_2_1741758041_fcbee2ed:
+    container_name: dyn_adbhoney_2_1741758041_fcbee2ed
+    environment:
+      CLUSTER_ID: '2'
+      HONEYPOT_TYPE: adbhoney
+      OS_TYPE: Linux
+    image: ghcr.io/telekom-security/adbhoney:24.04.1
+    networks:
+    - default
+    ports:
+    - 48808:8883
+    restart: always
+    volumes:
+    - /data/dyn_adbhoney/dyn_adbhoney_2_1741758041_fcbee2ed/:/data
+    - /data/dyn_adbhoney/dyn_adbhoney_2_1741758041_fcbee2ed/log:/var/log
+  dyn_heralding_0_1741758040_2248f927:
+    container_name: dyn_heralding_0_1741758040_2248f927
+    environment:
+      CLUSTER_ID: '0'
+      HONEYPOT_TYPE: heralding
+      OS_TYPE: Linux
+    image: ghcr.io/telekom-security/heralding:24.04.1
+    networks:
+    - default
+    ports:
+    - 48262:180
+    restart: always
+    volumes:
+    - /data/dyn_heralding/dyn_heralding_0_1741758040_2248f927/:/data
+    - /data/dyn_heralding/dyn_heralding_0_1741758040_2248f927/log:/var/log
+  dyn_heralding_0_1741758040_2f60d62c:
+    container_name: dyn_heralding_0_1741758040_2f60d62c
+    environment:
+      CLUSTER_ID: '0'
+      HONEYPOT_TYPE: heralding
+      OS_TYPE: Linux
+    image: ghcr.io/telekom-security/heralding:24.04.1
+    networks:
+    - default
+    ports:
+    - 48696:7700
+    restart: always
+    volumes:
+    - /data/dyn_heralding/dyn_heralding_0_1741758040_2f60d62c/:/data
+    - /data/dyn_heralding/dyn_heralding_0_1741758040_2f60d62c/log:/var/log
+  dyn_heralding_0_1741758040_45bbf762:
+    container_name: dyn_heralding_0_1741758040_45bbf762
+    environment:
+      CLUSTER_ID: '0'
+      HONEYPOT_TYPE: heralding
+      OS_TYPE: Linux
+    image: ghcr.io/telekom-security/heralding:24.04.1
+    networks:
+    - default
+    ports:
+    - 42001:6053
+    restart: always
+    volumes:
+    - /data/dyn_heralding/dyn_heralding_0_1741758040_45bbf762/:/data
+    - /data/dyn_heralding/dyn_heralding_0_1741758040_45bbf762/log:/var/log
+  dyn_heralding_0_1741758040_481451ad:
+    container_name: dyn_heralding_0_1741758040_481451ad
+    environment:
+      CLUSTER_ID: '0'
+      HONEYPOT_TYPE: heralding
+      OS_TYPE: Linux
+    image: ghcr.io/telekom-security/heralding:24.04.1
+    networks:
+    - default
+    ports:
+    - 48316:4444
+    restart: always
+    volumes:
+    - /data/dyn_heralding/dyn_heralding_0_1741758040_481451ad/:/data
+    - /data/dyn_heralding/dyn_heralding_0_1741758040_481451ad/log:/var/log
+  dyn_heralding_0_1741758040_49c57c8c:
+    container_name: dyn_heralding_0_1741758040_49c57c8c
+    environment:
+      CLUSTER_ID: '0'
+      HONEYPOT_TYPE: heralding
+      OS_TYPE: Linux
+    image: ghcr.io/telekom-security/heralding:24.04.1
+    networks:
+    - default
+    ports:
+    - 47815:3333
+    restart: always
+    volumes:
+    - /data/dyn_heralding/dyn_heralding_0_1741758040_49c57c8c/:/data
+    - /data/dyn_heralding/dyn_heralding_0_1741758040_49c57c8c/log:/var/log
+  dyn_heralding_0_1741758040_519ea90e:
+    container_name: dyn_heralding_0_1741758040_519ea90e
+    environment:
+      CLUSTER_ID: '0'
+      HONEYPOT_TYPE: heralding
+      OS_TYPE: Linux
+    image: ghcr.io/telekom-security/heralding:24.04.1
+    networks:
+    - default
+    ports:
+    - 46999:80
+    restart: always
+    volumes:
+    - /data/dyn_heralding/dyn_heralding_0_1741758040_519ea90e/:/data
+    - /data/dyn_heralding/dyn_heralding_0_1741758040_519ea90e/log:/var/log
+  dyn_heralding_0_1741758040_579ae9bb:
+    container_name: dyn_heralding_0_1741758040_579ae9bb
+    environment:
+      CLUSTER_ID: '0'
+      HONEYPOT_TYPE: heralding
+      OS_TYPE: Linux
+    image: ghcr.io/telekom-security/heralding:24.04.1
+    networks:
+    - default
+    ports:
+    - 44511:5005
+    restart: always
+    volumes:
+    - /data/dyn_heralding/dyn_heralding_0_1741758040_579ae9bb/:/data
+    - /data/dyn_heralding/dyn_heralding_0_1741758040_579ae9bb/log:/var/log
+  dyn_heralding_0_1741758040_690c9fa6:
+    container_name: dyn_heralding_0_1741758040_690c9fa6
+    environment:
+      CLUSTER_ID: '0'
+      HONEYPOT_TYPE: heralding
+      OS_TYPE: Linux
+    image: ghcr.io/telekom-security/heralding:24.04.1
+    networks:
+    - default
+    ports:
+    - 45373:4723
+    restart: always
+    volumes:
+    - /data/dyn_heralding/dyn_heralding_0_1741758040_690c9fa6/:/data
+    - /data/dyn_heralding/dyn_heralding_0_1741758040_690c9fa6/log:/var/log
+  dyn_heralding_0_1741758040_ac5e019c:
+    container_name: dyn_heralding_0_1741758040_ac5e019c
+    environment:
+      CLUSTER_ID: '0'
+      HONEYPOT_TYPE: heralding
+      OS_TYPE: Linux
+    image: ghcr.io/telekom-security/heralding:24.04.1
+    networks:
+    - default
+    ports:
+    - 42509:7001
+    restart: always
+    volumes:
+    - /data/dyn_heralding/dyn_heralding_0_1741758040_ac5e019c/:/data
+    - /data/dyn_heralding/dyn_heralding_0_1741758040_ac5e019c/log:/var/log
+  dyn_heralding_0_1741758040_b024167b:
+    container_name: dyn_heralding_0_1741758040_b024167b
+    environment:
+      CLUSTER_ID: '0'
+      HONEYPOT_TYPE: heralding
+      OS_TYPE: Linux
+    image: ghcr.io/telekom-security/heralding:24.04.1
+    networks:
+    - default
+    ports:
+    - 53773:9123
+    restart: always
+    volumes:
+    - /data/dyn_heralding/dyn_heralding_0_1741758040_b024167b/:/data
+    - /data/dyn_heralding/dyn_heralding_0_1741758040_b024167b/log:/var/log
+  dyn_heralding_0_1741758040_c43b4ee4:
+    container_name: dyn_heralding_0_1741758040_c43b4ee4
+    environment:
+      CLUSTER_ID: '0'
+      HONEYPOT_TYPE: heralding
+      OS_TYPE: Linux
+    image: ghcr.io/telekom-security/heralding:24.04.1
+    networks:
+    - default
+    ports:
+    - 59227:8082
+    restart: always
+    volumes:
+    - /data/dyn_heralding/dyn_heralding_0_1741758040_c43b4ee4/:/data
+    - /data/dyn_heralding/dyn_heralding_0_1741758040_c43b4ee4/log:/var/log
+  dyn_heralding_0_1741758040_cf3e0e20:
+    container_name: dyn_heralding_0_1741758040_cf3e0e20
+    environment:
+      CLUSTER_ID: '0'
+      HONEYPOT_TYPE: heralding
+      OS_TYPE: Linux
+    image: ghcr.io/telekom-security/heralding:24.04.1
+    networks:
+    - default
+    ports:
+    - 45635:8123
+    restart: always
+    volumes:
+    - /data/dyn_heralding/dyn_heralding_0_1741758040_cf3e0e20/:/data
+    - /data/dyn_heralding/dyn_heralding_0_1741758040_cf3e0e20/log:/var/log
+  dyn_heralding_0_1741758040_d42e773f:
+    container_name: dyn_heralding_0_1741758040_d42e773f
+    environment:
+      CLUSTER_ID: '0'
+      HONEYPOT_TYPE: heralding
+      OS_TYPE: Linux
+    image: ghcr.io/telekom-security/heralding:24.04.1
+    networks:
+    - default
+    ports:
+    - 40190:9000
+    restart: always
+    volumes:
+    - /data/dyn_heralding/dyn_heralding_0_1741758040_d42e773f/:/data
+    - /data/dyn_heralding/dyn_heralding_0_1741758040_d42e773f/log:/var/log
+  dyn_heralding_1_1741758041_d64b0d56:
+    container_name: dyn_heralding_1_1741758041_d64b0d56
+    environment:
+      CLUSTER_ID: '1'
+      HONEYPOT_TYPE: heralding
+      OS_TYPE: Linux
+    image: ghcr.io/telekom-security/heralding:24.04.1
+    networks:
+    - default
+    ports:
+    - 53396:80
+    restart: always
+    volumes:
+    - /data/dyn_heralding/dyn_heralding_1_1741758041_d64b0d56/:/data
+    - /data/dyn_heralding/dyn_heralding_1_1741758041_d64b0d56/log:/var/log
+  dyn_heralding_2_1741758041_45562931:
+    container_name: dyn_heralding_2_1741758041_45562931
+    environment:
+      CLUSTER_ID: '2'
+      HONEYPOT_TYPE: heralding
+      OS_TYPE: Linux
+    image: ghcr.io/telekom-security/heralding:24.04.1
+    networks:
+    - default
+    ports:
+    - 49805:80
+    restart: always
+    volumes:
+    - /data/dyn_heralding/dyn_heralding_2_1741758041_45562931/:/data
+    - /data/dyn_heralding/dyn_heralding_2_1741758041_45562931/log:/var/log
+version: '2.3'

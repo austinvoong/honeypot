@@ -1,0 +1,1454 @@
+[
+  {
+    "ip_address": "10.0.0.9",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      9123
+    ],
+    "services": {
+      "80": "http",
+      "9123": "unknown-9123"
+    },
+    "tcp_fingerprint": "3181f0d817666529b231b46f05fcf1151d07875a856f49a62db81d4f81fe77d0",
+    "uptime": 150,
+    "mac_address": "92:9a:03:c4:1c:4a",
+    "device_type": "light"
+  },
+  {
+    "ip_address": "10.0.0.33",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      8082
+    ],
+    "services": {
+      "80": "http",
+      "8082": "http-alt"
+    },
+    "tcp_fingerprint": "1d542ad669a3aafba029754064dbb3793bc43f13d42d2bb27a68e94bf0682607",
+    "uptime": 615,
+    "mac_address": "5a:10:07:1e:ec:71",
+    "device_type": "sensor"
+  },
+  {
+    "ip_address": "10.0.0.30",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      5005
+    ],
+    "services": {
+      "5005": "unknown-5005",
+      "80": "http"
+    },
+    "tcp_fingerprint": "be085671a29a31ba2d576840ecf36e85ba295db009b97e4f2cee40eaf5217253",
+    "uptime": 332,
+    "mac_address": "b6:76:e9:bd:87:44",
+    "device_type": "speaker"
+  },
+  {
+    "ip_address": "10.0.0.29",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      9123
+    ],
+    "services": {
+      "80": "http",
+      "9123": "unknown-9123"
+    },
+    "tcp_fingerprint": "17e3b85d0100cfcc48265117385aa0b8699f61415d2edad3704c6c41a22da96d",
+    "uptime": 688,
+    "mac_address": "7f:39:36:fb:1f:00",
+    "device_type": "light"
+  },
+  {
+    "ip_address": "10.0.0.106",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      7001
+    ],
+    "services": {
+      "7001": "unknown-7001",
+      "80": "http"
+    },
+    "tcp_fingerprint": "f7e7d4f4b5e5f2e6c3a45bd4405866f6878104bef32900c99d4068c7eed37bf5",
+    "uptime": 55,
+    "mac_address": "e2:ce:4b:88:4c:55",
+    "device_type": "doorbell"
+  },
+  {
+    "ip_address": "10.0.0.48",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      1883
+    ],
+    "services": {
+      "1883": "mqtt",
+      "80": "http"
+    },
+    "tcp_fingerprint": "d2cb1ce869669ae6a7672a4f9a662fe45164b49b2799e1ef753e8438f6ccd79e",
+    "uptime": 353,
+    "mac_address": "ce:a5:71:79:38:91",
+    "device_type": "sensor"
+  },
+  {
+    "ip_address": "10.0.0.62",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      554
+    ],
+    "services": {
+      "554": "rtsp",
+      "80": "http"
+    },
+    "tcp_fingerprint": "72a76573ec05a0864c0f38cca1145d55e164d1550bd96bf79f4b4f2cba3cd240",
+    "uptime": 277,
+    "mac_address": "13:48:73:88:84:65",
+    "device_type": "camera"
+  },
+  {
+    "ip_address": "10.0.0.28",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      1883
+    ],
+    "services": {
+      "1883": "mqtt",
+      "80": "http"
+    },
+    "tcp_fingerprint": "c51d8ab2025a70e919d5adb88646b3fca4c9e83d702c6c6bb140239c7b2c3752",
+    "uptime": 676,
+    "mac_address": "02:f3:72:1a:3e:09",
+    "device_type": "sensor"
+  },
+  {
+    "ip_address": "10.0.0.89",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      9123
+    ],
+    "services": {
+      "80": "http",
+      "9123": "unknown-9123"
+    },
+    "tcp_fingerprint": "c5fec2c5adf2f094e0994451f4b388da4589e9ebf88b831bb7874265ad8e5120",
+    "uptime": 295,
+    "mac_address": "12:31:c3:14:52:d1",
+    "device_type": "light"
+  },
+  {
+    "ip_address": "10.0.0.11",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      6053
+    ],
+    "services": {
+      "6053": "unknown-6053",
+      "80": "http"
+    },
+    "tcp_fingerprint": "93d12f6f04c58bf35f9368b6bd7028337f26f38ec17d216d3e1cb3212a282a13",
+    "uptime": 576,
+    "mac_address": "a2:0c:80:8f:f4:90",
+    "device_type": "sensor"
+  },
+  {
+    "ip_address": "10.0.0.52",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      4723
+    ],
+    "services": {
+      "4723": "unknown-4723",
+      "80": "http"
+    },
+    "tcp_fingerprint": "855c84a53fd7db315455d1346c7e82f64ccd78290d77f828a3d578f614a41c66",
+    "uptime": 707,
+    "mac_address": "2a:64:00:79:73:fd",
+    "device_type": "web-interface"
+  },
+  {
+    "ip_address": "10.0.0.107",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      8883
+    ],
+    "services": {
+      "80": "http",
+      "8883": "mqtt-ssl"
+    },
+    "tcp_fingerprint": "cc5aa8014bca4758a851b5782972213cb31152e4296585d4dcddb8a4bd417d71",
+    "uptime": 300,
+    "mac_address": "7e:63:83:25:97:3a",
+    "device_type": "lock"
+  },
+  {
+    "ip_address": "10.0.0.7",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      8883
+    ],
+    "services": {
+      "80": "http",
+      "8883": "mqtt-ssl"
+    },
+    "tcp_fingerprint": "7babc229cb359f323c0be446db244b7feb0c6cff38bb82d9d216fd7d74696999",
+    "uptime": 248,
+    "mac_address": "b2:3f:22:6a:33:95",
+    "device_type": "lock"
+  },
+  {
+    "ip_address": "10.0.0.112",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      4723
+    ],
+    "services": {
+      "4723": "unknown-4723",
+      "80": "http"
+    },
+    "tcp_fingerprint": "8c284fff311a903ebc544eca685d9e5286f29ee6317dab943d5c59556dd917bc",
+    "uptime": 278,
+    "mac_address": "77:3b:70:1d:22:fe",
+    "device_type": "web-interface"
+  },
+  {
+    "ip_address": "10.0.0.12",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      4723
+    ],
+    "services": {
+      "4723": "unknown-4723",
+      "80": "http"
+    },
+    "tcp_fingerprint": "5f9f3c8add54086ddc420c5d92a2aaee014336447f98824f00708b8bdb8b9b30",
+    "uptime": 510,
+    "mac_address": "fb:e2:a1:81:dd:3e",
+    "device_type": "web-interface"
+  },
+  {
+    "ip_address": "10.0.0.55",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      7700
+    ],
+    "services": {
+      "7700": "unknown-7700",
+      "80": "http"
+    },
+    "tcp_fingerprint": "75cd57ee27e6577d4e3b8d9fd5240ad3be271d8aa81b7e29422b78498813d6fe",
+    "uptime": 197,
+    "mac_address": "36:e5:b0:d5:0e:c0",
+    "device_type": "sensor"
+  },
+  {
+    "ip_address": "10.0.0.70",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      5005
+    ],
+    "services": {
+      "5005": "unknown-5005",
+      "80": "http"
+    },
+    "tcp_fingerprint": "08e2542fc177429aa86906b964a9e32fbf41c689bf67da5417519895b949a696",
+    "uptime": 291,
+    "mac_address": "97:d3:6a:4d:81:e3",
+    "device_type": "speaker"
+  },
+  {
+    "ip_address": "10.0.0.94",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      9000
+    ],
+    "services": {
+      "80": "http",
+      "9000": "unknown-9000"
+    },
+    "tcp_fingerprint": "7db3155fc8b260b3297f543d5410aa658d882bbbb6bfd133a4c007620e424702",
+    "uptime": 356,
+    "mac_address": "23:c6:51:ac:a1:f6",
+    "device_type": "refrigerator"
+  },
+  {
+    "ip_address": "10.0.0.66",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      7001
+    ],
+    "services": {
+      "7001": "unknown-7001",
+      "80": "http"
+    },
+    "tcp_fingerprint": "983e4b20e3cc087d21a33d988743ecc0843e64846b8b4683cf277480416b2215",
+    "uptime": 284,
+    "mac_address": "0f:2d:72:d0:3b:1a",
+    "device_type": "doorbell"
+  },
+  {
+    "ip_address": "10.0.0.34",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      9000
+    ],
+    "services": {
+      "80": "http",
+      "9000": "unknown-9000"
+    },
+    "tcp_fingerprint": "344e439fb4250e2d8b2d1efadabff42fb97cb1f487e83395c994f68fc80f0dd5",
+    "uptime": 436,
+    "mac_address": "96:5d:ee:f7:70:f0",
+    "device_type": "refrigerator"
+  },
+  {
+    "ip_address": "10.0.0.88",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      1883
+    ],
+    "services": {
+      "1883": "mqtt",
+      "80": "http"
+    },
+    "tcp_fingerprint": "a17e2cc0ad07bca402c561a9e3a09715c7d0e3c3ccac8edd0b60b74d38b38629",
+    "uptime": 316,
+    "mac_address": "3a:98:45:1b:0a:d3",
+    "device_type": "sensor"
+  },
+  {
+    "ip_address": "10.0.0.92",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      4723
+    ],
+    "services": {
+      "4723": "unknown-4723",
+      "80": "http"
+    },
+    "tcp_fingerprint": "d2322dca2e12da892fe77e22fb4900f6774d3a73ee2df0c16bb38a11cc09140c",
+    "uptime": 98,
+    "mac_address": "92:bd:69:12:d9:e6",
+    "device_type": "web-interface"
+  },
+  {
+    "ip_address": "10.0.0.54",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      9000
+    ],
+    "services": {
+      "80": "http",
+      "9000": "unknown-9000"
+    },
+    "tcp_fingerprint": "c0f0600ff256fb94d941eb8b73e700e2d7ba8ba2abd6ea983f34a6442fa05b25",
+    "uptime": 717,
+    "mac_address": "d3:e8:67:7d:0e:2e",
+    "device_type": "refrigerator"
+  },
+  {
+    "ip_address": "10.0.0.86",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      7001
+    ],
+    "services": {
+      "7001": "unknown-7001",
+      "80": "http"
+    },
+    "tcp_fingerprint": "ecd5c0fdd4cf20d33b32a370219eb2074d93dc0b699e059374b637f43dc798ec",
+    "uptime": 262,
+    "mac_address": "fa:85:69:ba:b5:f9",
+    "device_type": "doorbell"
+  },
+  {
+    "ip_address": "10.0.0.110",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      5005
+    ],
+    "services": {
+      "5005": "unknown-5005",
+      "80": "http"
+    },
+    "tcp_fingerprint": "3cc3aa9f5dc96b3b3d0a135036c795179106ab852a2cb3a0bf080eb1c01baf0f",
+    "uptime": 95,
+    "mac_address": "32:7a:d7:40:27:7d",
+    "device_type": "speaker"
+  },
+  {
+    "ip_address": "10.0.0.114",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      9000
+    ],
+    "services": {
+      "80": "http",
+      "9000": "unknown-9000"
+    },
+    "tcp_fingerprint": "406cb003006171b210ae20f89b15697071e48c6b53dba41ce3d2a03aef8d1ded",
+    "uptime": 326,
+    "mac_address": "fb:86:b8:1e:f2:49",
+    "device_type": "refrigerator"
+  },
+  {
+    "ip_address": "10.0.0.13",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      8082
+    ],
+    "services": {
+      "80": "http",
+      "8082": "http-alt"
+    },
+    "tcp_fingerprint": "dae43551910d6cb188da3f527c0d415299a8cff7811025039fd4a474ee168475",
+    "uptime": 74,
+    "mac_address": "0b:f1:de:d4:e1:50",
+    "device_type": "sensor"
+  },
+  {
+    "ip_address": "10.0.0.78",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      4444
+    ],
+    "services": {
+      "4444": "unknown-4444",
+      "80": "http"
+    },
+    "tcp_fingerprint": "da2b2d9bf82493c4edb432730d76c374180a453c917d2825acf2b17be1c438f1",
+    "uptime": 607,
+    "mac_address": "72:3f:68:c8:63:01",
+    "device_type": "doorbell"
+  },
+  {
+    "ip_address": "10.0.0.47",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      8883
+    ],
+    "services": {
+      "80": "http",
+      "8883": "mqtt-ssl"
+    },
+    "tcp_fingerprint": "bfac93b747e8b05fcb36602a2c87d8dea299c5642d1134c9c7cf53802b909ff5",
+    "uptime": 714,
+    "mac_address": "a2:e2:82:85:a0:2b",
+    "device_type": "lock"
+  },
+  {
+    "ip_address": "10.0.0.87",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      8883
+    ],
+    "services": {
+      "80": "http",
+      "8883": "mqtt-ssl"
+    },
+    "tcp_fingerprint": "19b6ad6a72e52f7c7f269e9df996e7e4159cd54ca7b8278d115b3c955e930f81",
+    "uptime": 80,
+    "mac_address": "32:cd:23:56:03:16",
+    "device_type": "lock"
+  },
+  {
+    "ip_address": "10.0.0.50",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      5005
+    ],
+    "services": {
+      "5005": "unknown-5005",
+      "80": "http"
+    },
+    "tcp_fingerprint": "599a9b91d41798e9fc9ad2d7b4f321da9b37375976a644e22742155f61d6f3d0",
+    "uptime": 615,
+    "mac_address": "ce:fa:61:ef:45:04",
+    "device_type": "speaker"
+  },
+  {
+    "ip_address": "10.0.0.49",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      9123
+    ],
+    "services": {
+      "80": "http",
+      "9123": "unknown-9123"
+    },
+    "tcp_fingerprint": "d20db3def621fcc55750600c06fcc6e84e5e1cf83014d02964db2e0ee48a2378",
+    "uptime": 274,
+    "mac_address": "9e:36:99:c1:73:b6",
+    "device_type": "light"
+  },
+  {
+    "ip_address": "10.0.0.6",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      7001
+    ],
+    "services": {
+      "7001": "unknown-7001",
+      "80": "http"
+    },
+    "tcp_fingerprint": "54c5d29e06f68886e8eca006e44e244b38009768be1b3f602f984c89482142e5",
+    "uptime": 588,
+    "mac_address": "d3:8b:d5:ee:5e:8b",
+    "device_type": "doorbell"
+  },
+  {
+    "ip_address": "10.0.0.58",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      4444
+    ],
+    "services": {
+      "4444": "unknown-4444",
+      "80": "http"
+    },
+    "tcp_fingerprint": "469bbe168e3aa1c28c7358dc86f2062166cb6f95f7d2a026cb876860999feb1a",
+    "uptime": 447,
+    "mac_address": "aa:c2:39:13:5e:b3",
+    "device_type": "doorbell"
+  },
+  {
+    "ip_address": "10.0.0.98",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      4444
+    ],
+    "services": {
+      "4444": "unknown-4444",
+      "80": "http"
+    },
+    "tcp_fingerprint": "764e7d89472b6cb216bc60045e37a69762448d47e3d2d9d66d6b1a551f53d0c4",
+    "uptime": 486,
+    "mac_address": "06:30:8f:98:08:2b",
+    "device_type": "doorbell"
+  },
+  {
+    "ip_address": "10.0.0.46",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      7001
+    ],
+    "services": {
+      "7001": "unknown-7001",
+      "80": "http"
+    },
+    "tcp_fingerprint": "7956f7022ceacff9953b7b50cfafe29e14e4fa9336a25c26dd8afe1c1f526600",
+    "uptime": 515,
+    "mac_address": "8f:df:4d:6c:fb:b8",
+    "device_type": "doorbell"
+  },
+  {
+    "ip_address": "10.0.0.36",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      8123
+    ],
+    "services": {
+      "80": "http",
+      "8123": "http-alt"
+    },
+    "tcp_fingerprint": "18ab50b79fbead27119210511e54ca898156fcd9eae959a5c8d4c1737ae0abb4",
+    "uptime": 382,
+    "mac_address": "9e:26:f8:4f:65:81",
+    "device_type": "gateway"
+  },
+  {
+    "ip_address": "10.0.0.15",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      7700
+    ],
+    "services": {
+      "7700": "unknown-7700",
+      "80": "http"
+    },
+    "tcp_fingerprint": "467830733775d2e12635140523c50990517fd582180034416f0659ba63f6a30f",
+    "uptime": 12,
+    "mac_address": "9f:61:d4:e2:19:eb",
+    "device_type": "sensor"
+  },
+  {
+    "ip_address": "10.0.0.5",
+    "os_type": "Linux",
+    "open_ports": [
+      80
+    ],
+    "services": {
+      "80": "http"
+    },
+    "tcp_fingerprint": "3f2b7bcb4417554d526d272bf3763464b008bc545bc2200e40afd8fb1844d6fa",
+    "uptime": 245,
+    "mac_address": "bf:8e:24:51:7d:f1",
+    "device_type": "thermostat"
+  },
+  {
+    "ip_address": "10.0.0.102",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      554
+    ],
+    "services": {
+      "554": "rtsp",
+      "80": "http"
+    },
+    "tcp_fingerprint": "8babc7f73875efa5bbd37adf23225dd81ea2e470bc4d4eaae68e605442a24664",
+    "uptime": 77,
+    "mac_address": "fe:a3:75:2b:a8:11",
+    "device_type": "camera"
+  },
+  {
+    "ip_address": "10.0.0.115",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      7700
+    ],
+    "services": {
+      "7700": "unknown-7700",
+      "80": "http"
+    },
+    "tcp_fingerprint": "6543f73afa6b6a31f764a9810ced0e256c7bf2830baf99b57318e5dc4493b218",
+    "uptime": 296,
+    "mac_address": "12:f0:4b:04:01:5c",
+    "device_type": "sensor"
+  },
+  {
+    "ip_address": "10.0.0.17",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      3333
+    ],
+    "services": {
+      "3333": "unknown-3333",
+      "80": "http"
+    },
+    "tcp_fingerprint": "cebf22603f71ee02d9dd5f72cae3b76004cf35215a34acd8b1710e763f550859",
+    "uptime": 199,
+    "mac_address": "c6:1a:d1:d3:4e:02",
+    "device_type": "air-purifier"
+  },
+  {
+    "ip_address": "10.0.0.3",
+    "os_type": "Linux",
+    "open_ports": [
+      80
+    ],
+    "services": {
+      "80": "http"
+    },
+    "tcp_fingerprint": "cb14b371c5ef35250dace7cfeca88317f785fe51e2f6b21aa4297d5628a58561",
+    "uptime": 73,
+    "mac_address": "b3:2a:b2:3a:d4:aa",
+    "device_type": "gateway"
+  },
+  {
+    "ip_address": "10.0.0.90",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      5005
+    ],
+    "services": {
+      "5005": "unknown-5005",
+      "80": "http"
+    },
+    "tcp_fingerprint": "b00f62f0dafd53c6fa268e6ec43c4210483284973f261edce7091f5fe3499c89",
+    "uptime": 101,
+    "mac_address": "fb:ec:c2:0f:57:53",
+    "device_type": "speaker"
+  },
+  {
+    "ip_address": "10.0.0.96",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      8123
+    ],
+    "services": {
+      "80": "http",
+      "8123": "http-alt"
+    },
+    "tcp_fingerprint": "ab79201e63173d043254c3e5ba008efd4781da669ac5f662567a8dd9597885c1",
+    "uptime": 80,
+    "mac_address": "1f:f8:0b:d9:d2:cf",
+    "device_type": "gateway"
+  },
+  {
+    "ip_address": "10.0.0.73",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      8082
+    ],
+    "services": {
+      "80": "http",
+      "8082": "http-alt"
+    },
+    "tcp_fingerprint": "63df91be8ed147aa944685ed2937865143fee832fc474a17d9544f08b8cf8166",
+    "uptime": 129,
+    "mac_address": "de:b9:69:c3:c7:e3",
+    "device_type": "sensor"
+  },
+  {
+    "ip_address": "10.0.0.109",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      9123
+    ],
+    "services": {
+      "80": "http",
+      "9123": "unknown-9123"
+    },
+    "tcp_fingerprint": "5ba70a6cebaec7600b9bc8d1116e637a07df8e009676eeefcf73153577027829",
+    "uptime": 49,
+    "mac_address": "ca:25:07:d7:7a:a5",
+    "device_type": "light"
+  },
+  {
+    "ip_address": "10.0.0.77",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      3333
+    ],
+    "services": {
+      "3333": "unknown-3333",
+      "80": "http"
+    },
+    "tcp_fingerprint": "c204f5c14a88cf2b737bbb3e7240572ff4b7c9f13fb20b17f7ea02281045fc65",
+    "uptime": 247,
+    "mac_address": "4f:15:3b:f6:c1:12",
+    "device_type": "air-purifier"
+  },
+  {
+    "ip_address": "10.0.0.35",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      7700
+    ],
+    "services": {
+      "7700": "unknown-7700",
+      "80": "http"
+    },
+    "tcp_fingerprint": "81fc3aadf65c8124e0d8e65c07e506773c9b9cd9c95a6b9ee083eac59d4a0bd9",
+    "uptime": 308,
+    "mac_address": "df:c0:3a:23:c4:01",
+    "device_type": "sensor"
+  },
+  {
+    "ip_address": "10.0.0.8",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      1883
+    ],
+    "services": {
+      "1883": "mqtt",
+      "80": "http"
+    },
+    "tcp_fingerprint": "06abecad6b396e7667bb4ebecd8f51f8ab75e8d80a7b30a4420950ed6bd4b7b9",
+    "uptime": 286,
+    "mac_address": "7a:02:cd:d4:be:6e",
+    "device_type": "sensor"
+  },
+  {
+    "ip_address": "10.0.0.22",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      554
+    ],
+    "services": {
+      "554": "rtsp",
+      "80": "http"
+    },
+    "tcp_fingerprint": "35f1a2ce38293793a0e937d6440c5531158b4bcf2a1069dc43e2e64f8a9d1f5d",
+    "uptime": 293,
+    "mac_address": "5f:31:a9:5c:db:d5",
+    "device_type": "camera"
+  },
+  {
+    "ip_address": "10.0.0.67",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      8883
+    ],
+    "services": {
+      "80": "http",
+      "8883": "mqtt-ssl"
+    },
+    "tcp_fingerprint": "3af0b86952d10b80b62df74990ef2a0219496fb57a01f6ff90d0a29f09bf9666",
+    "uptime": 381,
+    "mac_address": "12:ed:3b:45:35:ed",
+    "device_type": "lock"
+  },
+  {
+    "ip_address": "10.0.0.111",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      6053
+    ],
+    "services": {
+      "6053": "unknown-6053",
+      "80": "http"
+    },
+    "tcp_fingerprint": "aade03a82b385267e7a83a0d932308f67260d6e4942369cad0c34698f7879224",
+    "uptime": 260,
+    "mac_address": "07:c0:86:15:11:4e",
+    "device_type": "sensor"
+  },
+  {
+    "ip_address": "10.0.0.25",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      180
+    ],
+    "services": {
+      "80": "http",
+      "180": "unknown-180"
+    },
+    "tcp_fingerprint": "0d563e9c668f6973f42ab26e90bfc7ae8b402a5c985a72955d8ccf2b4333588c",
+    "uptime": 378,
+    "mac_address": "23:a2:3e:06:fe:fc",
+    "device_type": "thermostat"
+  },
+  {
+    "ip_address": "10.0.0.68",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      1883
+    ],
+    "services": {
+      "1883": "mqtt",
+      "80": "http"
+    },
+    "tcp_fingerprint": "1787fc7dc382c149c6d6ae7262bf03a8c4077e15b128a1681dd892eeda7338a2",
+    "uptime": 150,
+    "mac_address": "1e:94:f8:ab:60:df",
+    "device_type": "sensor"
+  },
+  {
+    "ip_address": "10.0.0.45",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      180
+    ],
+    "services": {
+      "80": "http",
+      "180": "unknown-180"
+    },
+    "tcp_fingerprint": "e4beb716e89a2d506fd37f32af768260513e0b31e14c621793ba11137dd938e2",
+    "uptime": 325,
+    "mac_address": "1a:44:74:e4:20:89",
+    "device_type": "thermostat"
+  },
+  {
+    "ip_address": "10.0.0.74",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      9000
+    ],
+    "services": {
+      "80": "http",
+      "9000": "unknown-9000"
+    },
+    "tcp_fingerprint": "c92c1ce58028ea140a95882298b34cc0faddd80c44edd577b464d2f92b5b4802",
+    "uptime": 135,
+    "mac_address": "52:0c:61:6b:20:00",
+    "device_type": "refrigerator"
+  },
+  {
+    "ip_address": "10.0.0.76",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      8123
+    ],
+    "services": {
+      "80": "http",
+      "8123": "http-alt"
+    },
+    "tcp_fingerprint": "512e6855fd57deebc3d902a12e53825f58d6cc281dd50f499aa4b88da226532b",
+    "uptime": 713,
+    "mac_address": "b3:0d:71:c0:fa:b3",
+    "device_type": "gateway"
+  },
+  {
+    "ip_address": "10.0.0.95",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      7700
+    ],
+    "services": {
+      "7700": "unknown-7700",
+      "80": "http"
+    },
+    "tcp_fingerprint": "cd3e5e4bbadb2312a5ded67e13f3cc265eeaee9509c141af25b8ac345bef9ba4",
+    "uptime": 240,
+    "mac_address": "5a:25:53:6d:10:54",
+    "device_type": "sensor"
+  },
+  {
+    "ip_address": "10.0.0.16",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      8123
+    ],
+    "services": {
+      "80": "http",
+      "8123": "http-alt"
+    },
+    "tcp_fingerprint": "f102e1165782a761a27d9e048ec86857f890118ed5195ab053ac6510dd04fec3",
+    "uptime": 221,
+    "mac_address": "3f:83:6d:55:b7:94",
+    "device_type": "gateway"
+  },
+  {
+    "ip_address": "10.0.0.26",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      7001
+    ],
+    "services": {
+      "7001": "unknown-7001",
+      "80": "http"
+    },
+    "tcp_fingerprint": "eea570eab9860acc3149f6d8195fdf480ec84d3abf2b0d37be94ba3bf032ee95",
+    "uptime": 317,
+    "mac_address": "76:4e:dd:f4:fd:15",
+    "device_type": "doorbell"
+  },
+  {
+    "ip_address": "10.0.0.113",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      8082
+    ],
+    "services": {
+      "80": "http",
+      "8082": "http-alt"
+    },
+    "tcp_fingerprint": "917317f8fe036c8e4da3d39aa0728b4d0cfad44d64aacc77ec5c617a6fd8976e",
+    "uptime": 191,
+    "mac_address": "b2:98:d1:78:9a:d1",
+    "device_type": "sensor"
+  },
+  {
+    "ip_address": "10.0.0.82",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      554
+    ],
+    "services": {
+      "554": "rtsp",
+      "80": "http"
+    },
+    "tcp_fingerprint": "4aff7aac8b4099c1737f1f7e0c894e78bf438ae08ff4e6baea0d3cf5cdf1373a",
+    "uptime": 447,
+    "mac_address": "16:22:ab:40:ed:d9",
+    "device_type": "camera"
+  },
+  {
+    "ip_address": "10.0.0.2",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      554
+    ],
+    "services": {
+      "554": "rtsp",
+      "80": "http"
+    },
+    "tcp_fingerprint": "545654f4c840d0870f8b71175028673786506c09704095ef9982ea097dda01f4",
+    "uptime": 487,
+    "mac_address": "cb:da:4d:7c:0d:29",
+    "device_type": "camera"
+  },
+  {
+    "ip_address": "10.0.0.105",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      180
+    ],
+    "services": {
+      "80": "http",
+      "180": "unknown-180"
+    },
+    "tcp_fingerprint": "8b7f4640642fba0d92aa5a064bbb88908987ee6eaacc892a039bb94884dc959f",
+    "uptime": 472,
+    "mac_address": "82:52:5d:fa:ee:03",
+    "device_type": "thermostat"
+  },
+  {
+    "ip_address": "10.0.0.57",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      3333
+    ],
+    "services": {
+      "3333": "unknown-3333",
+      "80": "http"
+    },
+    "tcp_fingerprint": "6eaa122968aae6677f87db5ee5c50f8af432099469a32f569b4198fe51f2cc9a",
+    "uptime": 574,
+    "mac_address": "b6:c5:d3:0d:f0:02",
+    "device_type": "air-purifier"
+  },
+  {
+    "ip_address": "10.0.0.56",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      8123
+    ],
+    "services": {
+      "80": "http",
+      "8123": "http-alt"
+    },
+    "tcp_fingerprint": "74a60aeabcad2211f1dbcb87cfe51506cf383a12c75ea2903c15c2e09523ca12",
+    "uptime": 281,
+    "mac_address": "7b:ea:ee:0f:c2:88",
+    "device_type": "gateway"
+  },
+  {
+    "ip_address": "10.0.0.117",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      3333
+    ],
+    "services": {
+      "3333": "unknown-3333",
+      "80": "http"
+    },
+    "tcp_fingerprint": "0127af5fd107dc453982938ba5e27d5a16efd4a564025c8591e89bd9c464e59b",
+    "uptime": 351,
+    "mac_address": "2a:38:4e:54:9d:ea",
+    "device_type": "air-purifier"
+  },
+  {
+    "ip_address": "10.0.0.51",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      6053
+    ],
+    "services": {
+      "6053": "unknown-6053",
+      "80": "http"
+    },
+    "tcp_fingerprint": "959eadb71907719c9f554fd436be7dff8816069a5c66a1f3f7dd802a60ffd669",
+    "uptime": 74,
+    "mac_address": "5f:3b:08:14:50:7a",
+    "device_type": "sensor"
+  },
+  {
+    "ip_address": "10.0.0.93",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      8082
+    ],
+    "services": {
+      "80": "http",
+      "8082": "http-alt"
+    },
+    "tcp_fingerprint": "66ab1100872c8f6250f7810b0240065d64436b753fd2a13ac3f94c0e377986ee",
+    "uptime": 56,
+    "mac_address": "a6:80:39:34:0c:97",
+    "device_type": "sensor"
+  },
+  {
+    "ip_address": "10.0.0.75",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      7700
+    ],
+    "services": {
+      "7700": "unknown-7700",
+      "80": "http"
+    },
+    "tcp_fingerprint": "3fabf6c16a73804c048e8c29d5d8705ec6eab0dce59d150450394ef04ad7bda5",
+    "uptime": 419,
+    "mac_address": "2b:d1:46:30:23:a9",
+    "device_type": "sensor"
+  },
+  {
+    "ip_address": "10.0.0.31",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      6053
+    ],
+    "services": {
+      "6053": "unknown-6053",
+      "80": "http"
+    },
+    "tcp_fingerprint": "5c3aa052b79824306bd4ffa551d3e55096f84546551fa1731f36ea53b8da4bfc",
+    "uptime": 102,
+    "mac_address": "f6:fe:b0:a7:b5:0c",
+    "device_type": "sensor"
+  },
+  {
+    "ip_address": "10.0.0.10",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      5005
+    ],
+    "services": {
+      "5005": "unknown-5005",
+      "80": "http"
+    },
+    "tcp_fingerprint": "8a134ad49afbef5fcc3a3c39fd0867ead340206d0d3061449bfb865219cbc602",
+    "uptime": 310,
+    "mac_address": "eb:4b:2e:13:bf:cd",
+    "device_type": "speaker"
+  },
+  {
+    "ip_address": "10.0.0.69",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      9123
+    ],
+    "services": {
+      "80": "http",
+      "9123": "unknown-9123"
+    },
+    "tcp_fingerprint": "384b1cca12175f67a85e27c4cdd8f06e01557ceeebb7074a9c7644c1e277ce56",
+    "uptime": 597,
+    "mac_address": "af:00:c6:6e:a8:ce",
+    "device_type": "light"
+  },
+  {
+    "ip_address": "10.0.0.42",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      554
+    ],
+    "services": {
+      "554": "rtsp",
+      "80": "http"
+    },
+    "tcp_fingerprint": "c1d839f62cc106344fd04a127f59ff77c668d10d35d4da42866ba676279429ca",
+    "uptime": 668,
+    "mac_address": "82:d7:df:63:d4:48",
+    "device_type": "camera"
+  },
+  {
+    "ip_address": "10.0.0.65",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      180
+    ],
+    "services": {
+      "80": "http",
+      "180": "unknown-180"
+    },
+    "tcp_fingerprint": "7c4843dc3046b3f4208027fdaece9e32c300660bfe760e46e583bee085fa6479",
+    "uptime": 148,
+    "mac_address": "b2:f3:b9:f9:6f:4a",
+    "device_type": "thermostat"
+  },
+  {
+    "ip_address": "10.0.0.14",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      9000
+    ],
+    "services": {
+      "80": "http",
+      "9000": "unknown-9000"
+    },
+    "tcp_fingerprint": "04dccb3ecacf599f1181bbf0887f5e63cee98e52ea0e53672515056155a6bf18",
+    "uptime": 471,
+    "mac_address": "03:72:b1:77:75:6f",
+    "device_type": "refrigerator"
+  },
+  {
+    "ip_address": "10.0.0.38",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      4444
+    ],
+    "services": {
+      "4444": "unknown-4444",
+      "80": "http"
+    },
+    "tcp_fingerprint": "0d7893364db6847c1d5b25bbcad07ff431d7b4d455a1b0717cf5e946bbdd9006",
+    "uptime": 95,
+    "mac_address": "1f:76:18:65:1c:19",
+    "device_type": "doorbell"
+  },
+  {
+    "ip_address": "10.0.0.32",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      4723
+    ],
+    "services": {
+      "4723": "unknown-4723",
+      "80": "http"
+    },
+    "tcp_fingerprint": "151b3016bff9a85ce76557777cd36ae4c883d13976fc4ab340cb65b50d27f50a",
+    "uptime": 99,
+    "mac_address": "5f:66:f4:c0:15:ee",
+    "device_type": "web-interface"
+  },
+  {
+    "ip_address": "10.0.0.85",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      180
+    ],
+    "services": {
+      "80": "http",
+      "180": "unknown-180"
+    },
+    "tcp_fingerprint": "cccca895fd3d49c9ff31ce3869a10faf77328b8bc2d2f3483ab5c40d8081b8dd",
+    "uptime": 253,
+    "mac_address": "b7:0f:20:01:b2:99",
+    "device_type": "thermostat"
+  },
+  {
+    "ip_address": "10.0.0.37",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      3333
+    ],
+    "services": {
+      "3333": "unknown-3333",
+      "80": "http"
+    },
+    "tcp_fingerprint": "3154ad0083276e4c7a3a2024bf0391684b995d5c7c9a08d82c822345ab8184e4",
+    "uptime": 229,
+    "mac_address": "3a:4b:59:0e:99:2d",
+    "device_type": "air-purifier"
+  },
+  {
+    "ip_address": "10.0.0.53",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      8082
+    ],
+    "services": {
+      "80": "http",
+      "8082": "http-alt"
+    },
+    "tcp_fingerprint": "662834c9bf04c03a648754778b9aaf00e390f7d5da14d922a33248ed2ed175ad",
+    "uptime": 304,
+    "mac_address": "f6:dc:2d:2e:5b:06",
+    "device_type": "sensor"
+  },
+  {
+    "ip_address": "10.0.0.118",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      4444
+    ],
+    "services": {
+      "4444": "unknown-4444",
+      "80": "http"
+    },
+    "tcp_fingerprint": "831dac478476803163b33b594169c86f43666214403870218ebf2a4dc4fc9f1e",
+    "uptime": 167,
+    "mac_address": "ae:66:f0:a7:0e:cf",
+    "device_type": "doorbell"
+  },
+  {
+    "ip_address": "10.0.0.71",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      6053
+    ],
+    "services": {
+      "6053": "unknown-6053",
+      "80": "http"
+    },
+    "tcp_fingerprint": "6b93bbb78e30591ba1e699561cc150a8f9fc668c37856172432fe7eb83812a5f",
+    "uptime": 250,
+    "mac_address": "6e:bd:e0:73:fd:7a",
+    "device_type": "sensor"
+  },
+  {
+    "ip_address": "10.0.0.116",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      8123
+    ],
+    "services": {
+      "80": "http",
+      "8123": "http-alt"
+    },
+    "tcp_fingerprint": "7ebbde6419fd6b90d5e5fe7b2a19d2e7f9c28684df70383ce23dc709d6e1a4fb",
+    "uptime": 636,
+    "mac_address": "5b:63:e4:f2:e6:64",
+    "device_type": "gateway"
+  },
+  {
+    "ip_address": "10.0.0.18",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      4444
+    ],
+    "services": {
+      "4444": "unknown-4444",
+      "80": "http"
+    },
+    "tcp_fingerprint": "c91df1b8f412f4cddd15c3f50440c968d89a1c28a825877f1ed30e9b0325a82f",
+    "uptime": 223,
+    "mac_address": "93:7b:22:4d:06:7e",
+    "device_type": "doorbell"
+  },
+  {
+    "ip_address": "10.0.0.27",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      8883
+    ],
+    "services": {
+      "80": "http",
+      "8883": "mqtt-ssl"
+    },
+    "tcp_fingerprint": "f75b27cdcb4f23549fc6b32a9f00c7bb2023c8a1abde643cf6cf2eda841fee04",
+    "uptime": 151,
+    "mac_address": "53:98:54:ab:8f:bc",
+    "device_type": "lock"
+  },
+  {
+    "ip_address": "10.0.0.108",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      1883
+    ],
+    "services": {
+      "1883": "mqtt",
+      "80": "http"
+    },
+    "tcp_fingerprint": "d1197cc37ef321e2766c35fe516db3ff66747eeb4d03e66a148a9d2c7b137bf7",
+    "uptime": 671,
+    "mac_address": "f2:b5:18:ee:4e:59",
+    "device_type": "sensor"
+  },
+  {
+    "ip_address": "10.0.0.97",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      3333
+    ],
+    "services": {
+      "3333": "unknown-3333",
+      "80": "http"
+    },
+    "tcp_fingerprint": "9540a11d81bd7f0997051495fce80f19e2afcdefab1c8e2091e085fdb017bdea",
+    "uptime": 543,
+    "mac_address": "ce:d3:d6:1b:23:c0",
+    "device_type": "air-purifier"
+  },
+  {
+    "ip_address": "10.0.0.91",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      6053
+    ],
+    "services": {
+      "6053": "unknown-6053",
+      "80": "http"
+    },
+    "tcp_fingerprint": "6504107181b34f481eaac8000f7915781355cf2ea8ebd949746bb9336d86f4ff",
+    "uptime": 366,
+    "mac_address": "b6:41:fe:15:e6:fc",
+    "device_type": "sensor"
+  },
+  {
+    "ip_address": "10.0.0.72",
+    "os_type": "Linux",
+    "open_ports": [
+      80,
+      4723
+    ],
+    "services": {
+      "4723": "unknown-4723",
+      "80": "http"
+    },
+    "tcp_fingerprint": "aafcc67a3997180b99ce3fa5fb337d79c9fce8b4fa15b94b0edd6c0b15265845",
+    "uptime": 155,
+    "mac_address": "73:a1:f4:8e:df:7f",
+    "device_type": "web-interface"
+  }
+]

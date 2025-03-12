@@ -9,7 +9,7 @@ project_root = Path(__file__).parent.parent
 sys.path.append(str(project_root))
 
 # Import your Docker scanner
-from docker_device_scanner import DockerDeviceScanner
+from src.network_scanner.docker_device_scanner import DockerDeviceScanner
 from src.utils.config import Config
 
 def main():
