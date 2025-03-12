@@ -14,7 +14,7 @@ A sophisticated honeypot system that uses machine learning to scan networks, ana
 ## Project Structure
 
 ```
-dynamic-honeypot/
+honeypot-proj/
 ├── examples/                           # Main execution scripts
 │   ├── run_honeypot_system.py          # Primary script to run the system
 │   ├── remote_run_honeypot_system.py   # For remote deployment
@@ -26,7 +26,7 @@ dynamic-honeypot/
 │   │   ├── docker_device_scanner.py    # Scans Docker environments for devices
 │   │   └── models.py                   # Data models for device fingerprints
 │   ├── feature_analysis/               # ML-based feature analysis
-│   │   └── clustering.py               # Implements K-means clustering
+│   │   └── clustering.py               # Implements K-Means/DBSCAN clustering
 │   ├── honeypot_config/                # Configuration generators
 │   │   └── generator.py                # Creates honeypot configurations
 │   ├── honeypot_deploy/                # Deployment modules
@@ -72,8 +72,8 @@ dynamic-honeypot/
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/dynamic-honeypot.git
-   cd dynamic-honeypot
+   git clone https://github.com/austinvoong/honeypot.git
+   cd honeypot-proj
    ```
 
 2. **Create and activate a virtual environment**:
@@ -93,7 +93,7 @@ dynamic-honeypot/
 ### Option 1: Run with Pre-collected Network Data
 
 ```bash
-# Deploy using a saved scan file
+# Deploy using a saved scan file (testing purposes)
 python3 examples/run_honeypot_system.py --remote \
   --host 192.168.64.2 \
   --port 64295 \
