@@ -99,7 +99,7 @@ python3 examples/run_honeypot_system.py --remote \
   --port 64295 \
   --user tpotuser \
   --password yourpassword \
-  --scan-file scan_results/network_scan_YYYYMMDD_HHMMSS.json
+  --scan-file scan_results/network_scan_20250306_215405.json
 ```
 
 ### Option 2: Full Pipeline (Scan, Analyze, Deploy)
