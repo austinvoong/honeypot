@@ -1,6 +1,6 @@
 services:
-  dyn_adbhoney_0_1741758040_d6533f05:
-    container_name: dyn_adbhoney_0_1741758040_d6533f05
+  dyn_adbhoney_0_1741816105_bbfecd37:
+    container_name: dyn_adbhoney_0_1741816105_bbfecd37
     environment:
       CLUSTER_ID: '0'
       HONEYPOT_TYPE: adbhoney
@@ -9,13 +9,13 @@ services:
     networks:
     - default
     ports:
-    - 47957:554
+    - 57078:554
     restart: always
     volumes:
-    - /data/dyn_adbhoney/dyn_adbhoney_0_1741758040_d6533f05/:/data
-    - /data/dyn_adbhoney/dyn_adbhoney_0_1741758040_d6533f05/log:/var/log
-  dyn_adbhoney_1_1741758041_53f7da16:
-    container_name: dyn_adbhoney_1_1741758041_53f7da16
+    - /data/dyn_adbhoney/dyn_adbhoney_0_1741816105_bbfecd37/:/data
+    - /data/dyn_adbhoney/dyn_adbhoney_0_1741816105_bbfecd37/log:/var/log
+  dyn_adbhoney_1_1741816105_ff7e9eee:
+    container_name: dyn_adbhoney_1_1741816105_ff7e9eee
     environment:
       CLUSTER_ID: '1'
       HONEYPOT_TYPE: adbhoney
@@ -24,13 +24,13 @@ services:
     networks:
     - default
     ports:
-    - 56630:1883
+    - 49038:1883
     restart: always
     volumes:
-    - /data/dyn_adbhoney/dyn_adbhoney_1_1741758041_53f7da16/:/data
-    - /data/dyn_adbhoney/dyn_adbhoney_1_1741758041_53f7da16/log:/var/log
-  dyn_adbhoney_2_1741758041_fcbee2ed:
-    container_name: dyn_adbhoney_2_1741758041_fcbee2ed
+    - /data/dyn_adbhoney/dyn_adbhoney_1_1741816105_ff7e9eee/:/data
+    - /data/dyn_adbhoney/dyn_adbhoney_1_1741816105_ff7e9eee/log:/var/log
+  dyn_adbhoney_2_1741816106_599c4049:
+    container_name: dyn_adbhoney_2_1741816106_599c4049
     environment:
       CLUSTER_ID: '2'
       HONEYPOT_TYPE: adbhoney
@@ -39,13 +39,13 @@ services:
     networks:
     - default
     ports:
-    - 48808:8883
+    - 40745:8883
     restart: always
     volumes:
-    - /data/dyn_adbhoney/dyn_adbhoney_2_1741758041_fcbee2ed/:/data
-    - /data/dyn_adbhoney/dyn_adbhoney_2_1741758041_fcbee2ed/log:/var/log
-  dyn_heralding_0_1741758040_2248f927:
-    container_name: dyn_heralding_0_1741758040_2248f927
+    - /data/dyn_adbhoney/dyn_adbhoney_2_1741816106_599c4049/:/data
+    - /data/dyn_adbhoney/dyn_adbhoney_2_1741816106_599c4049/log:/var/log
+  dyn_heralding_0_1741816105_26139f0a:
+    container_name: dyn_heralding_0_1741816105_26139f0a
     environment:
       CLUSTER_ID: '0'
       HONEYPOT_TYPE: heralding
@@ -54,13 +54,13 @@ services:
     networks:
     - default
     ports:
-    - 48262:180
+    - 58016:5005
     restart: always
     volumes:
-    - /data/dyn_heralding/dyn_heralding_0_1741758040_2248f927/:/data
-    - /data/dyn_heralding/dyn_heralding_0_1741758040_2248f927/log:/var/log
-  dyn_heralding_0_1741758040_2f60d62c:
-    container_name: dyn_heralding_0_1741758040_2f60d62c
+    - /data/dyn_heralding/dyn_heralding_0_1741816105_26139f0a/:/data
+    - /data/dyn_heralding/dyn_heralding_0_1741816105_26139f0a/log:/var/log
+  dyn_heralding_0_1741816105_3a027d5d:
+    container_name: dyn_heralding_0_1741816105_3a027d5d
     environment:
       CLUSTER_ID: '0'
       HONEYPOT_TYPE: heralding
@@ -69,13 +69,13 @@ services:
     networks:
     - default
     ports:
-    - 48696:7700
+    - 57444:9123
     restart: always
     volumes:
-    - /data/dyn_heralding/dyn_heralding_0_1741758040_2f60d62c/:/data
-    - /data/dyn_heralding/dyn_heralding_0_1741758040_2f60d62c/log:/var/log
-  dyn_heralding_0_1741758040_45bbf762:
-    container_name: dyn_heralding_0_1741758040_45bbf762
+    - /data/dyn_heralding/dyn_heralding_0_1741816105_3a027d5d/:/data
+    - /data/dyn_heralding/dyn_heralding_0_1741816105_3a027d5d/log:/var/log
+  dyn_heralding_0_1741816105_4c14fb4f:
+    container_name: dyn_heralding_0_1741816105_4c14fb4f
     environment:
       CLUSTER_ID: '0'
       HONEYPOT_TYPE: heralding
@@ -84,13 +84,13 @@ services:
     networks:
     - default
     ports:
-    - 42001:6053
+    - 48526:8123
     restart: always
     volumes:
-    - /data/dyn_heralding/dyn_heralding_0_1741758040_45bbf762/:/data
-    - /data/dyn_heralding/dyn_heralding_0_1741758040_45bbf762/log:/var/log
-  dyn_heralding_0_1741758040_481451ad:
-    container_name: dyn_heralding_0_1741758040_481451ad
+    - /data/dyn_heralding/dyn_heralding_0_1741816105_4c14fb4f/:/data
+    - /data/dyn_heralding/dyn_heralding_0_1741816105_4c14fb4f/log:/var/log
+  dyn_heralding_0_1741816105_50addc8b:
+    container_name: dyn_heralding_0_1741816105_50addc8b
     environment:
       CLUSTER_ID: '0'
       HONEYPOT_TYPE: heralding
@@ -99,13 +99,13 @@ services:
     networks:
     - default
     ports:
-    - 48316:4444
+    - 56357:7700
     restart: always
     volumes:
-    - /data/dyn_heralding/dyn_heralding_0_1741758040_481451ad/:/data
-    - /data/dyn_heralding/dyn_heralding_0_1741758040_481451ad/log:/var/log
-  dyn_heralding_0_1741758040_49c57c8c:
-    container_name: dyn_heralding_0_1741758040_49c57c8c
+    - /data/dyn_heralding/dyn_heralding_0_1741816105_50addc8b/:/data
+    - /data/dyn_heralding/dyn_heralding_0_1741816105_50addc8b/log:/var/log
+  dyn_heralding_0_1741816105_51c72c1d:
+    container_name: dyn_heralding_0_1741816105_51c72c1d
     environment:
       CLUSTER_ID: '0'
       HONEYPOT_TYPE: heralding
@@ -114,13 +114,13 @@ services:
     networks:
     - default
     ports:
-    - 47815:3333
+    - 41510:4723
     restart: always
     volumes:
-    - /data/dyn_heralding/dyn_heralding_0_1741758040_49c57c8c/:/data
-    - /data/dyn_heralding/dyn_heralding_0_1741758040_49c57c8c/log:/var/log
-  dyn_heralding_0_1741758040_519ea90e:
-    container_name: dyn_heralding_0_1741758040_519ea90e
+    - /data/dyn_heralding/dyn_heralding_0_1741816105_51c72c1d/:/data
+    - /data/dyn_heralding/dyn_heralding_0_1741816105_51c72c1d/log:/var/log
+  dyn_heralding_0_1741816105_595611de:
+    container_name: dyn_heralding_0_1741816105_595611de
     environment:
       CLUSTER_ID: '0'
       HONEYPOT_TYPE: heralding
@@ -129,13 +129,13 @@ services:
     networks:
     - default
     ports:
-    - 46999:80
+    - 46948:6053
     restart: always
     volumes:
-    - /data/dyn_heralding/dyn_heralding_0_1741758040_519ea90e/:/data
-    - /data/dyn_heralding/dyn_heralding_0_1741758040_519ea90e/log:/var/log
-  dyn_heralding_0_1741758040_579ae9bb:
-    container_name: dyn_heralding_0_1741758040_579ae9bb
+    - /data/dyn_heralding/dyn_heralding_0_1741816105_595611de/:/data
+    - /data/dyn_heralding/dyn_heralding_0_1741816105_595611de/log:/var/log
+  dyn_heralding_0_1741816105_6961389f:
+    container_name: dyn_heralding_0_1741816105_6961389f
     environment:
       CLUSTER_ID: '0'
       HONEYPOT_TYPE: heralding
@@ -144,13 +144,13 @@ services:
     networks:
     - default
     ports:
-    - 44511:5005
+    - 41018:4444
     restart: always
     volumes:
-    - /data/dyn_heralding/dyn_heralding_0_1741758040_579ae9bb/:/data
-    - /data/dyn_heralding/dyn_heralding_0_1741758040_579ae9bb/log:/var/log
-  dyn_heralding_0_1741758040_690c9fa6:
-    container_name: dyn_heralding_0_1741758040_690c9fa6
+    - /data/dyn_heralding/dyn_heralding_0_1741816105_6961389f/:/data
+    - /data/dyn_heralding/dyn_heralding_0_1741816105_6961389f/log:/var/log
+  dyn_heralding_0_1741816105_9a2684cd:
+    container_name: dyn_heralding_0_1741816105_9a2684cd
     environment:
       CLUSTER_ID: '0'
       HONEYPOT_TYPE: heralding
@@ -159,13 +159,13 @@ services:
     networks:
     - default
     ports:
-    - 45373:4723
+    - 58387:8082
     restart: always
     volumes:
-    - /data/dyn_heralding/dyn_heralding_0_1741758040_690c9fa6/:/data
-    - /data/dyn_heralding/dyn_heralding_0_1741758040_690c9fa6/log:/var/log
-  dyn_heralding_0_1741758040_ac5e019c:
-    container_name: dyn_heralding_0_1741758040_ac5e019c
+    - /data/dyn_heralding/dyn_heralding_0_1741816105_9a2684cd/:/data
+    - /data/dyn_heralding/dyn_heralding_0_1741816105_9a2684cd/log:/var/log
+  dyn_heralding_0_1741816105_c5ecf076:
+    container_name: dyn_heralding_0_1741816105_c5ecf076
     environment:
       CLUSTER_ID: '0'
       HONEYPOT_TYPE: heralding
@@ -174,13 +174,13 @@ services:
     networks:
     - default
     ports:
-    - 42509:7001
+    - 56807:9000
     restart: always
     volumes:
-    - /data/dyn_heralding/dyn_heralding_0_1741758040_ac5e019c/:/data
-    - /data/dyn_heralding/dyn_heralding_0_1741758040_ac5e019c/log:/var/log
-  dyn_heralding_0_1741758040_b024167b:
-    container_name: dyn_heralding_0_1741758040_b024167b
+    - /data/dyn_heralding/dyn_heralding_0_1741816105_c5ecf076/:/data
+    - /data/dyn_heralding/dyn_heralding_0_1741816105_c5ecf076/log:/var/log
+  dyn_heralding_0_1741816105_d9b4eea6:
+    container_name: dyn_heralding_0_1741816105_d9b4eea6
     environment:
       CLUSTER_ID: '0'
       HONEYPOT_TYPE: heralding
@@ -189,13 +189,13 @@ services:
     networks:
     - default
     ports:
-    - 53773:9123
+    - 49203:80
     restart: always
     volumes:
-    - /data/dyn_heralding/dyn_heralding_0_1741758040_b024167b/:/data
-    - /data/dyn_heralding/dyn_heralding_0_1741758040_b024167b/log:/var/log
-  dyn_heralding_0_1741758040_c43b4ee4:
-    container_name: dyn_heralding_0_1741758040_c43b4ee4
+    - /data/dyn_heralding/dyn_heralding_0_1741816105_d9b4eea6/:/data
+    - /data/dyn_heralding/dyn_heralding_0_1741816105_d9b4eea6/log:/var/log
+  dyn_heralding_0_1741816105_da05c926:
+    container_name: dyn_heralding_0_1741816105_da05c926
     environment:
       CLUSTER_ID: '0'
       HONEYPOT_TYPE: heralding
@@ -204,13 +204,13 @@ services:
     networks:
     - default
     ports:
-    - 59227:8082
+    - 56193:180
     restart: always
     volumes:
-    - /data/dyn_heralding/dyn_heralding_0_1741758040_c43b4ee4/:/data
-    - /data/dyn_heralding/dyn_heralding_0_1741758040_c43b4ee4/log:/var/log
-  dyn_heralding_0_1741758040_cf3e0e20:
-    container_name: dyn_heralding_0_1741758040_cf3e0e20
+    - /data/dyn_heralding/dyn_heralding_0_1741816105_da05c926/:/data
+    - /data/dyn_heralding/dyn_heralding_0_1741816105_da05c926/log:/var/log
+  dyn_heralding_0_1741816105_ddca5a98:
+    container_name: dyn_heralding_0_1741816105_ddca5a98
     environment:
       CLUSTER_ID: '0'
       HONEYPOT_TYPE: heralding
@@ -219,13 +219,13 @@ services:
     networks:
     - default
     ports:
-    - 45635:8123
+    - 43857:3333
     restart: always
     volumes:
-    - /data/dyn_heralding/dyn_heralding_0_1741758040_cf3e0e20/:/data
-    - /data/dyn_heralding/dyn_heralding_0_1741758040_cf3e0e20/log:/var/log
-  dyn_heralding_0_1741758040_d42e773f:
-    container_name: dyn_heralding_0_1741758040_d42e773f
+    - /data/dyn_heralding/dyn_heralding_0_1741816105_ddca5a98/:/data
+    - /data/dyn_heralding/dyn_heralding_0_1741816105_ddca5a98/log:/var/log
+  dyn_heralding_0_1741816105_e3f886b2:
+    container_name: dyn_heralding_0_1741816105_e3f886b2
     environment:
       CLUSTER_ID: '0'
       HONEYPOT_TYPE: heralding
@@ -234,13 +234,13 @@ services:
     networks:
     - default
     ports:
-    - 40190:9000
+    - 49735:7001
     restart: always
     volumes:
-    - /data/dyn_heralding/dyn_heralding_0_1741758040_d42e773f/:/data
-    - /data/dyn_heralding/dyn_heralding_0_1741758040_d42e773f/log:/var/log
-  dyn_heralding_1_1741758041_d64b0d56:
-    container_name: dyn_heralding_1_1741758041_d64b0d56
+    - /data/dyn_heralding/dyn_heralding_0_1741816105_e3f886b2/:/data
+    - /data/dyn_heralding/dyn_heralding_0_1741816105_e3f886b2/log:/var/log
+  dyn_heralding_1_1741816105_edd7ddce:
+    container_name: dyn_heralding_1_1741816105_edd7ddce
     environment:
       CLUSTER_ID: '1'
       HONEYPOT_TYPE: heralding
@@ -249,13 +249,13 @@ services:
     networks:
     - default
     ports:
-    - 53396:80
+    - 45808:80
     restart: always
     volumes:
-    - /data/dyn_heralding/dyn_heralding_1_1741758041_d64b0d56/:/data
-    - /data/dyn_heralding/dyn_heralding_1_1741758041_d64b0d56/log:/var/log
-  dyn_heralding_2_1741758041_45562931:
-    container_name: dyn_heralding_2_1741758041_45562931
+    - /data/dyn_heralding/dyn_heralding_1_1741816105_edd7ddce/:/data
+    - /data/dyn_heralding/dyn_heralding_1_1741816105_edd7ddce/log:/var/log
+  dyn_heralding_2_1741816106_680c7961:
+    container_name: dyn_heralding_2_1741816106_680c7961
     environment:
       CLUSTER_ID: '2'
       HONEYPOT_TYPE: heralding
@@ -264,9 +264,9 @@ services:
     networks:
     - default
     ports:
-    - 49805:80
+    - 57683:80
     restart: always
     volumes:
-    - /data/dyn_heralding/dyn_heralding_2_1741758041_45562931/:/data
-    - /data/dyn_heralding/dyn_heralding_2_1741758041_45562931/log:/var/log
+    - /data/dyn_heralding/dyn_heralding_2_1741816106_680c7961/:/data
+    - /data/dyn_heralding/dyn_heralding_2_1741816106_680c7961/log:/var/log
 version: '2.3'

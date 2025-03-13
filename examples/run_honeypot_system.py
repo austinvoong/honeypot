@@ -129,6 +129,7 @@ try:
     from src.feature_analysis.clustering import DeviceClusterer
     from src.honeypot_config.generator import HoneypotConfigGenerator
     from src.honeypot_deploy.remote_tpot_deployer import RemoteTPotDeployer
+    from src.honeypot_deploy.coexist_tpot_deployer import CoexistRemoteTPotDeployer
     from src.utils.config import Config
 except ImportError as e:
     print(f"Import error: {e}")
@@ -262,7 +263,7 @@ async def main():
                     return
                     
                 logger.info(f"Deploying honeypots to remote T-Pot at {args.host}:{args.port}...")
-                deployer = RemoteTPotDeployer(
+                deployer = CoexistRemoteTPotDeployer( #Switch deployer type here
                     hostname=args.host,
                     port=args.port,
                     username=args.user,
