@@ -75,7 +75,7 @@
       "device_count": 79
     },
     "device_type": "camera",
-    "timestamp": "2025-03-12T15:35:06.962559"
+    "timestamp": "2025-03-12T20:59:01.717309"
   },
   {
     "cluster_id": 1,
@@ -88,7 +88,7 @@
       "1883": "mqtt",
       "80": "http"
     },
-    "personality": "alpine",
+    "personality": "ubuntu",
     "uptime_range": [
       24,
       720
@@ -105,7 +105,7 @@
       "device_count": 6
     },
     "device_type": "iot-gateway",
-    "timestamp": "2025-03-12T15:35:06.962576"
+    "timestamp": "2025-03-12T20:59:01.717330"
   },
   {
     "cluster_id": 2,
@@ -118,7 +118,7 @@
       "80": "http",
       "8883": "mqtt-ssl"
     },
-    "personality": "debian",
+    "personality": "ubuntu",
     "uptime_range": [
       24,
       720
@@ -135,6 +135,6 @@
       "device_count": 6
     },
     "device_type": "web-device",
-    "timestamp": "2025-03-12T15:35:06.962585"
+    "timestamp": "2025-03-12T20:59:01.717339"
   }
 ]

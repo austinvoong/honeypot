@@ -1,114 +1,4 @@
-# # examples/run_honeypot_system.py
-# #!/usr/bin/env python3
-# import logging
-# import sys
-# import asyncio
-# from pathlib import Path
-# import argparse
-
-# # Add project root to Python path
-# project_root = Path(__file__).parent.parent
-# sys.path.append(str(project_root))
-
-# # Import project modules
-# from src.network_scanner.docker_device_scanner import DockerDeviceScanner
-# from src.feature_analysis.clustering import DeviceClusterer
-# from src.honeypot_config.generator import HoneypotConfigGenerator
-# from src.honeypot_deploy.tpot_deployer import TPotDeployer
-# from src.utils.config import Config
-
-# async def main():
-#     # Parse command line arguments
-#     parser = argparse.ArgumentParser(description='Run the dynamic honeypot system')
-#     parser.add_argument('--monitor', action='store_true', help='Enable continuous monitoring')
-#     parser.add_argument('--interval', type=int, default=3600, help='Monitoring interval in seconds')
-#     parser.add_argument('--no-deploy', action='store_true', help='Skip deployment step')
-#     parser.add_argument('--debug', action='store_true', help='Enable debug logging')
-#     args = parser.parse_args()
-    
-#     # Configure logging
-#     log_level = logging.DEBUG if args.debug else Config.LOG_LEVEL
-#     logging.basicConfig(
-#         level=log_level,
-#         format=Config.LOG_FORMAT
-#     )
-#     logger = logging.getLogger(__name__)
-    
-#     try:
-#         # 1. Scan using Docker scanner
-#         logger.info("Scanning Docker test environment...")
-#         scanner = DockerDeviceScanner()
-#         devices = scanner.scan()
-#         scanner.save_results(devices)
-#         logger.info(f"Found {len(devices)} devices")
-        
-#         if not devices:
-#             logger.error("No devices found in test environment")
-#             return
-        
-#         # 2. Analyze and cluster devices
-#         logger.info("Clustering devices...")
-#         clusterer = DeviceClusterer()
-#         clusters = clusterer.cluster_devices(devices, method='kmeans')
-#         logger.info(f"Created {len(clusters)} device clusters")
-        
-#         for cluster_id, cluster_devices in clusters.items():
-#             logger.info(f"Cluster {cluster_id}: {len(cluster_devices)} devices")
-#             for device in cluster_devices[:3]:  # Show only first 3 devices per cluster
-#                 logger.info(f"  - {device.ip_address} ({device.os_type}): {len(device.open_ports)} ports")
-#             if len(cluster_devices) > 3:
-#                 logger.info(f"  - ... and {len(cluster_devices) - 3} more devices")
-        
-#         # 3. Generate honeypot configurations
-#         logger.info("Generating honeypot configurations...")
-#         config_gen = HoneypotConfigGenerator(Config.OUTPUT_DIR)
-#         configs = config_gen.generate_config(clusters)
-#         config_file = config_gen.save_configs(configs)
-#         logger.info(f"Generated {len(configs)} honeypot configurations")
-        
-#         # 4. Deploy honeypots to T-Pot if not skipped
-#         if not args.no_deploy:
-#             logger.info("Deploying honeypots to T-Pot...")
-#             deployer = TPotDeployer(Config.TPOT_DIR)
-#             success = await deployer.deploy_honeypots(config_file)
-            
-#             if success:
-#                 logger.info("Honeypots deployed successfully!")
-                
-#                 # Get honeypot status
-#                 status = await deployer.get_honeypot_status_async()
-#                 logger.info("T-Pot honeypot status:")
-#                 for name, info in status.items():
-#                     logger.info(f"  {name}: {info['status']}")
-                    
-#                 # If monitoring enabled, start the monitoring loop
-#                 if args.monitor:
-#                     logger.info(f"Starting continuous monitoring (interval: {args.interval}s)")
-#                     await deployer.monitor_and_reconfigure(
-#                         scanner=scanner,
-#                         clusterer=clusterer,
-#                         config_gen=config_gen,
-#                         interval=args.interval
-#                     )
-#             else:
-#                 logger.error("Failed to deploy honeypots")
-#         else:
-#             logger.info("Deployment skipped as requested")
-            
-#     except KeyboardInterrupt:
-#         logger.info("Keyboard interrupt received, shutting down...")
-#     except Exception as e:
-#         logger.error(f"System error: {str(e)}")
-#         import traceback
-#         logger.debug(traceback.format_exc())
-#         sys.exit(1)
-
-# if __name__ == '__main__':
-#     asyncio.run(main())
-
-################################################################
-
-#!/usr/bin/env python3
+# examples/run_honeypot_system.py
 import logging
 import sys
 import os
@@ -192,6 +82,11 @@ async def main():
     parser.add_argument('--key', type=str, help='Path to SSH private key file')
     parser.add_argument('--remote-dir', type=str, default='/opt/tpot', help='Remote T-Pot directory')
     
+    # clustering method
+    parser.add_argument('--clustering-method', type=str, default='kmeans', 
+                    choices=['kmeans', 'dbscan'], 
+                    help='Clustering method to use (default: kmeans)')
+    
     args = parser.parse_args()
     
     # Configure logging
@@ -228,7 +123,7 @@ async def main():
         # 2. Analyze and cluster devices
         logger.info("Clustering devices...")
         clusterer = DeviceClusterer()
-        clusters = clusterer.cluster_devices(devices, method='kmeans')
+        clusters = clusterer.cluster_devices(devices, method=args.clustering_method)
         logger.info(f"Created {len(clusters)} device clusters")
         
         for cluster_id, cluster_devices in clusters.items():

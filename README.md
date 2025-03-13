@@ -24,6 +24,8 @@ honeypot-proj/
 ├── src/
 │   ├── network_scanner/                # Network scanning components
 │   │   ├── docker_device_scanner.py    # Scans Docker environments for devices
+│   │   ├── nmap.py                     # nmap scanner
+│   │   ├── p0f.py                      # p0f fingerprinter
 │   │   └── models.py                   # Data models for device fingerprints
 │   ├── feature_analysis/               # ML-based feature analysis
 │   │   └── clustering.py               # Implements K-Means/DBSCAN clustering
@@ -35,6 +37,10 @@ honeypot-proj/
 │   └── utils/                          # Utility functions
 │       ├── config.py                   # System configuration
 │       └── port_utils.py               # Port management utilities
+├── test_environment/                   # Test environment for IoT devices
+│   ├── docker/   
+│   │   ├── smartcamera/                # Docker containers
+│   │   └── (rest of devices) 
 └── requirements.txt                    # Python dependencies
 ```
 
